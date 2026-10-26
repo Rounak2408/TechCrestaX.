@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon & Official Brand Icon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="theme-color" content="#FFF9F6" />
+
+    <!-- SEO Meta Tags based on Official TechCrestaX Positioning -->
+    <title>TechCrestaX — Digital Engineering Studio | Websites, E-commerce & Platforms</title>
+    <meta
+      name="description"
+      content="TechCrestaX builds digital experiences that move businesses forward. Custom websites, e-commerce, web applications, and SEO. Starting from ₹7,000+ with 1-year free maintenance."
+    />
+    <meta name="keywords" content="TechCrestaX, website design and development, ecommerce website development, web applications and platforms, UI UX design, SEO local SEO, digital growth, Rajkot Gujarat, web development agency" />
+    <meta name="author" content="TechCrestaX" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.techcrestax.com/" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.techcrestax.com/" />
+    <meta property="og:title" content="TechCrestaX — Digital Engineering Studio" />
+    <meta
+      property="og:description"
+      content="We Build Digital Experiences That Move Businesses Forward. Strategic design and development — starting at ₹7,000+ with 1-year free maintenance."
+    />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:site_name" content="TechCrestaX" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TechCrestaX — Digital Engineering Studio" />
+    <meta
+      name="twitter:description"
+      content="We Build Digital Experiences That Move Businesses Forward. Strategic design and development — starting at ₹7,000+ with 1-year free maintenance."
+    />
+    <meta name="twitter:image" content="https://www.techcrestax.com/logo.png" />
+
+    <!-- Brand Asset Preload -->
+    <link rel="preload" as="image" href="/logo.png" type="image/png" />
+
+    <!-- Google Fonts DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Modern Typography (Inter, Plus Jakarta Sans, Caveat) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#FFF9F6] text-[#151515] dark:bg-[#0B0E14] dark:text-[#F8FAFC] antialiased selection:bg-[#FFF0E9] selection:text-[#FF572F] min-h-screen overflow-x-hidden font-sans">
+    <div id="root"></div>
+    <script>
+      window.addEventListener('error', function(event) {
+        console.error('Window error detected:', event.error || event.message);
+        var root = document.getElementById('root');
+        if (root && !root.hasChildNodes()) {
+          root.innerHTML = '<div style="padding:40px 20px;max-width:640px;margin:80px auto;font-family:sans-serif;background:#fff;border:1px solid #e2e8f0;border-radius:16px;box-shadow:0 10px 25px rgba(0,0,0,0.05);text-align:center;">' +
+            '<h2 style="color:#0f172a;margin-bottom:8px;">Interface Loading Error</h2>' +
+            '<p style="color:#64748b;font-size:14px;margin-bottom:16px;">' + (event.message || 'Script execution error') + '</p>' +
+            '<button onclick="location.reload()" style="padding:10px 24px;background:#0f172a;color:#fff;border:none;border-radius:9999px;font-weight:600;cursor:pointer;">Reload Page</button>' +
+            '</div>';
+        }
+      });
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
