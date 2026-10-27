@@ -85,14 +85,14 @@ export default function ContactForm() {
   )}&body=${encodeURIComponent(generateBriefText())}`;
 
   return (
-    <div className="bg-white dark:bg-[#121824] p-6 sm:p-10 rounded-3xl border border-[#F0E7E2] dark:border-white/10 shadow-lg">
+    <div className="bg-white dark:bg-[#0D1B2A] p-6 sm:p-10 rounded-3xl border border-[#EBECEF] dark:border-white/10 shadow-lg">
       {!isSubmitted ? (
         <form onSubmit={handleSubmit} noValidate className="space-y-6">
-          <div className="border-b border-[#F0E7E2] dark:border-white/10 pb-4">
-            <h2 className="text-xl sm:text-2xl font-bold font-display text-[#151515] dark:text-white">
+          <div className="border-b border-[#EBECEF] dark:border-white/10 pb-4">
+            <h2 className="text-xl sm:text-2xl font-bold font-heading text-[#0D1B2A] dark:text-white">
               Project Inquiry Form
             </h2>
-            <p className="text-xs sm:text-sm text-[#666666] dark:text-[#94A3B8] mt-1">
+            <p className="text-xs sm:text-sm text-[#4C5258] dark:text-[#94A3B8] mt-1">
               Fill in your project details. We review and respond with an itemized quote within 24 hours.
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function ContactForm() {
           {/* Name & Email Row */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label htmlFor="name" className="block text-xs font-bold text-[#151515] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
+              <label htmlFor="name" className="block text-xs font-bold text-[#0D1B2A] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
                 Full Name *
               </label>
               <input
@@ -112,9 +112,9 @@ export default function ContactForm() {
                   if (errors.name) setErrors({ ...errors, name: null });
                 }}
                 placeholder="Rounak Sharma"
-                className={`w-full px-4 py-3 rounded-xl bg-[#FFF9F6] dark:bg-[#1A2230] border ${
-                  errors.name ? 'border-rose-500 ring-1 ring-rose-500' : 'border-[#F0E7E2] dark:border-white/10'
-                } text-[#151515] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF572F] transition-all`}
+                className={`w-full px-4 py-3 rounded-xl bg-[#F8F9FA] dark:bg-[#152336] border ${
+                  errors.name ? 'border-rose-500 ring-1 ring-rose-500' : 'border-[#EBECEF] dark:border-white/10'
+                } text-[#0D1B2A] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] transition-all`}
               />
               {errors.name && (
                 <p className="text-rose-500 text-xs mt-1 flex items-center gap-1">
@@ -125,7 +125,7 @@ export default function ContactForm() {
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-xs font-bold text-[#151515] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
+              <label htmlFor="email" className="block text-xs font-bold text-[#0D1B2A] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
                 Business Email *
               </label>
               <input
@@ -137,9 +137,9 @@ export default function ContactForm() {
                   if (errors.email) setErrors({ ...errors, email: null });
                 }}
                 placeholder="rounak@example.com"
-                className={`w-full px-4 py-3 rounded-xl bg-[#FFF9F6] dark:bg-[#1A2230] border ${
-                  errors.email ? 'border-rose-500 ring-1 ring-rose-500' : 'border-[#F0E7E2] dark:border-white/10'
-                } text-[#151515] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF572F] transition-all`}
+                className={`w-full px-4 py-3 rounded-xl bg-[#F8F9FA] dark:bg-[#152336] border ${
+                  errors.email ? 'border-rose-500 ring-1 ring-rose-500' : 'border-[#EBECEF] dark:border-white/10'
+                } text-[#0D1B2A] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] transition-all`}
               />
               {errors.email && (
                 <p className="text-rose-500 text-xs mt-1 flex items-center gap-1">
@@ -152,14 +152,14 @@ export default function ContactForm() {
 
           {/* Project Type */}
           <div>
-            <label htmlFor="projectType" className="block text-xs font-bold text-[#151515] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
+            <label htmlFor="projectType" className="block text-xs font-bold text-[#0D1B2A] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
               Project Category *
             </label>
             <select
               id="projectType"
               value={formData.projectType}
               onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-[#FFF9F6] dark:bg-[#1A2230] border border-[#F0E7E2] dark:border-white/10 text-[#151515] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF572F] transition-all cursor-pointer"
+              className="w-full px-4 py-3 rounded-xl bg-[#F8F9FA] dark:bg-[#152336] border border-[#EBECEF] dark:border-white/10 text-[#0D1B2A] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] transition-all cursor-pointer"
             >
               {projectTypes.map((t) => (
                 <option key={t} value={t}>
@@ -171,14 +171,14 @@ export default function ContactForm() {
 
           {/* Budget Range */}
           <div>
-            <label htmlFor="budgetRange" className="block text-xs font-bold text-[#151515] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
+            <label htmlFor="budgetRange" className="block text-xs font-bold text-[#0D1B2A] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
               Estimated Budget Range (Optional)
             </label>
             <select
               id="budgetRange"
               value={formData.budgetRange}
               onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-[#FFF9F6] dark:bg-[#1A2230] border border-[#F0E7E2] dark:border-white/10 text-[#151515] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF572F] transition-all cursor-pointer"
+              className="w-full px-4 py-3 rounded-xl bg-[#F8F9FA] dark:bg-[#152336] border border-[#EBECEF] dark:border-white/10 text-[#0D1B2A] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] transition-all cursor-pointer"
             >
               {budgetRanges.map((b) => (
                 <option key={b} value={b}>
@@ -190,7 +190,7 @@ export default function ContactForm() {
 
           {/* Project Requirements */}
           <div>
-            <label htmlFor="requirements" className="block text-xs font-bold text-[#151515] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
+            <label htmlFor="requirements" className="block text-xs font-bold text-[#0D1B2A] dark:text-white mb-1.5 uppercase font-mono tracking-wider">
               Project Requirements & Goals *
             </label>
             <textarea
@@ -202,9 +202,9 @@ export default function ContactForm() {
                 if (errors.requirements) setErrors({ ...errors, requirements: null });
               }}
               placeholder="Tell us about your business, target audience, preferred pages, design references, and any specific functionality needed..."
-              className={`w-full px-4 py-3 rounded-xl bg-[#FFF9F6] dark:bg-[#1A2230] border ${
-                errors.requirements ? 'border-rose-500 ring-1 ring-rose-500' : 'border-[#F0E7E2] dark:border-white/10'
-              } text-[#151515] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF572F] transition-all`}
+              className={`w-full px-4 py-3 rounded-xl bg-[#F8F9FA] dark:bg-[#152336] border ${
+                errors.requirements ? 'border-rose-500 ring-1 ring-rose-500' : 'border-[#EBECEF] dark:border-white/10'
+              } text-[#0D1B2A] dark:text-white text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] transition-all`}
             />
             {errors.requirements && (
               <p className="text-rose-500 text-xs mt-1 flex items-center gap-1">
@@ -214,14 +214,16 @@ export default function ContactForm() {
             )}
           </div>
 
-          {/* Submit Button */}
+          {/* Alpha Agency Gradient Pill Button */}
           <div>
             <button
               type="submit"
-              className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#FF572F] hover:bg-[#E94725] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#FF572F]/25 hover:shadow-[#FF572F]/40 transition-all cursor-pointer"
+              className="w-full group inline-flex items-center justify-between px-6 py-4 rounded-full bg-gradient-to-r from-[#FF6B4A] via-[#FF7C42] to-[#FFB627] hover:opacity-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-[#FF6B4A]/25 transition-all cursor-pointer"
             >
               <span>Submit & Generate Project Brief</span>
-              <Send className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                <Send className="w-4 h-4 text-white" />
+              </div>
             </button>
           </div>
         </form>
@@ -233,16 +235,16 @@ export default function ContactForm() {
           </div>
 
           <div className="space-y-2">
-            <h3 className="text-2xl font-bold font-display text-[#151515] dark:text-white">
+            <h3 className="text-2xl font-bold font-heading text-[#0D1B2A] dark:text-white">
               Project Brief Formulated!
             </h3>
-            <p className="text-xs sm:text-sm text-[#666666] dark:text-[#94A3B8] max-w-md mx-auto">
+            <p className="text-xs sm:text-sm text-[#4C5258] dark:text-[#94A3B8] max-w-md mx-auto">
               Thank you, {formData.name}. Your project brief has been formatted. Choose how you would like to dispatch your brief to our engineering team:
             </p>
           </div>
 
           {/* Formatted Brief Preview Box */}
-          <div className="p-4 rounded-2xl bg-[#FFF9F6] dark:bg-[#1A2230] border border-[#F0E7E2] dark:border-white/10 text-left font-mono text-xs text-[#555555] dark:text-[#94A3B8] whitespace-pre-wrap max-w-lg mx-auto">
+          <div className="p-4 rounded-2xl bg-[#F8F9FA] dark:bg-[#152336] border border-[#EBECEF] dark:border-white/10 text-left font-mono text-xs text-[#4C5258] dark:text-[#94A3B8] whitespace-pre-wrap max-w-lg mx-auto">
             {generateBriefText()}
           </div>
 
@@ -260,7 +262,7 @@ export default function ContactForm() {
 
             <a
               href={mailtoUrl}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#151515] hover:bg-black text-white dark:bg-white dark:text-[#151515] dark:hover:bg-slate-100 font-bold text-xs sm:text-sm shadow-md transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#0D1B2A] hover:bg-black text-white dark:bg-white dark:text-[#0D1B2A] dark:hover:bg-slate-100 font-bold text-xs sm:text-sm shadow-md transition-all"
             >
               <Mail className="w-4 h-4" />
               <span>Send via Email Client</span>
@@ -269,7 +271,7 @@ export default function ContactForm() {
             <button
               type="button"
               onClick={handleCopy}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 hover:border-[#FF572F] text-[#151515] dark:text-white text-xs sm:text-sm font-semibold transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white dark:bg-[#0D1B2A] border border-[#EBECEF] dark:border-white/10 hover:border-[#FF6B4A] text-[#0D1B2A] dark:text-white text-xs sm:text-sm font-semibold transition-all cursor-pointer"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
               <span>{copied ? 'Copied Brief!' : 'Copy to Clipboard'}</span>
@@ -280,7 +282,7 @@ export default function ContactForm() {
             <button
               type="button"
               onClick={() => setIsSubmitted(false)}
-              className="text-xs text-[#666666] dark:text-[#94A3B8] hover:text-[#FF572F] underline cursor-pointer"
+              className="text-xs text-[#4C5258] dark:text-[#94A3B8] hover:text-[#FF6B4A] underline cursor-pointer"
             >
               Edit Details
             </button>

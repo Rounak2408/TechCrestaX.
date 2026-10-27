@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, ArrowRight, HelpCircle } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
+import Reveal from '../motion/Reveal';
 
 export default function FAQPreview() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -38,70 +39,84 @@ export default function FAQPreview() {
 
   return (
     <section 
-      className="py-12 sm:py-16 md:py-20 bg-white dark:bg-[#070A0F] border-y border-[#F0E7E2] dark:border-white/10 transition-colors"
+      className="py-16 sm:py-20 md:py-24 bg-white dark:bg-[#070A0F] border-b border-[#EBECEF] dark:border-white/10 transition-colors select-none"
       aria-label="Frequently Asked Questions"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        {/* Section Header */}
-        <div className="text-center space-y-2 mb-8 sm:mb-12">
-          <span className="text-xs font-mono uppercase tracking-widest text-[#FF572F] font-bold">
-            COMMON QUESTIONS
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-[#151515] dark:text-white tracking-tight">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base text-[#666666] dark:text-[#94A3B8] max-w-xl mx-auto">
-            Everything you need to know about our web engineering, pricing, and project workflow.
-          </p>
-        </div>
+        {/* Section Header (Alpha Agency: POPULAR QUESTION -> Your Agency Questions Answered.) */}
+        <Reveal>
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF4F0] dark:bg-[#0D1420] border border-[#FF6B4A]/25 text-xs font-semibold text-[#FF6B4A] shadow-2xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B4A] animate-pulse" />
+              <span className="uppercase tracking-widest text-[11px] font-mono font-bold">
+                POPULAR QUESTION
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display text-[#0D1B2A] dark:text-white tracking-tight">
+              Your Agency Questions Answered.
+            </h2>
+            <p className="text-base text-[#4C5258] dark:text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
+              Everything you need to know about our web engineering, pricing, and project workflow.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Accordion List */}
-        <div className="space-y-3.5">
+        <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <div
-                key={index}
-                className="rounded-2xl bg-[#FFF9F6] dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 overflow-hidden transition-colors"
-              >
-                <button
-                  type="button"
-                  onClick={() => toggleAccordion(index)}
-                  aria-expanded={isOpen}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#151515] dark:text-white hover:text-[#FF572F] dark:hover:text-[#FF572F] transition-colors cursor-pointer select-none"
+              <Reveal key={index} delay={index * 50}>
+                <div
+                  className={`rounded-2xl bg-[#F8F9FA] dark:bg-[#0D1420] border transition-all duration-300 overflow-hidden ${
+                    isOpen 
+                      ? 'border-[#FF6B4A]/50 shadow-md shadow-[#FF6B4A]/5' 
+                      : 'border-[#EBECEF] dark:border-white/10 hover:border-[#FF6B4A]/30'
+                  }`}
                 >
-                  <span className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF572F]" />
-                    <span>{faq.question}</span>
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#FF572F] shrink-0 transition-transform duration-200 ${
-                      isOpen ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => toggleAccordion(index)}
+                    aria-expanded={isOpen}
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#0D1B2A] dark:text-white hover:text-[#FF6B4A] dark:hover:text-[#FF6B4A] transition-colors cursor-pointer select-none"
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className={`w-2.5 h-2.5 rounded-full transition-colors duration-200 ${isOpen ? 'bg-[#FF6B4A]' : 'bg-[#FF6B4A]/30'}`} />
+                      <span>{faq.question}</span>
+                    </span>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200 ${isOpen ? 'bg-[#FF6B4A]/10 text-[#FF6B4A]' : 'bg-slate-200/60 dark:bg-white/10 text-slate-500'}`}>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform duration-300 ease-out ${
+                          isOpen ? 'rotate-180 text-[#FF6B4A]' : ''
+                        }`}
+                      />
+                    </div>
+                  </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-[#555555] dark:text-[#94A3B8] leading-relaxed border-t border-[#F0E7E2]/60 dark:border-white/5 animate-in fade-in duration-200">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
+                  {isOpen && (
+                    <div className="px-5 sm:px-6 pb-6 pt-2 text-xs sm:text-sm text-[#4C5258] dark:text-[#94A3B8] leading-relaxed border-t border-[#EBECEF]/80 dark:border-white/5 animate-fade-in-up">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
             );
           })}
         </div>
 
         {/* Link to Full FAQ Page */}
-        <div className="mt-10 text-center">
-          <Link
-            to="/faq"
-            className="inline-flex items-center gap-2 text-sm font-bold text-[#FF572F] hover:text-[#E94725] transition-colors group"
-          >
-            <span>Have More Questions? View Complete FAQ Page</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
+        <Reveal delay={150}>
+          <div className="text-center pt-2">
+            <Link
+              to="/faq"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#FF6B4A] hover:text-[#FF7C42] transition-colors group"
+            >
+              <span>Have More Questions? View Complete FAQ Page</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200" />
+            </Link>
+          </div>
+        </Reveal>
 
       </div>
     </section>

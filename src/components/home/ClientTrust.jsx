@@ -109,27 +109,27 @@ export default function ClientTrust() {
 
   return (
     <section 
-      className="py-8 sm:py-10 bg-[#FFF9F6] dark:bg-[#080B11] border-y border-[#F0E7E2] dark:border-slate-800/80 relative overflow-hidden select-none transition-colors"
+      className="py-10 bg-[#F8F9FA] dark:bg-[#070A0F] border-b border-[#EBECEF] dark:border-white/10 relative overflow-hidden select-none transition-colors"
       aria-label="Authentic Client Projects and Deliveries"
     >
       {/* Top Header Label Row */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse shrink-0" />
-          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#444444] dark:text-slate-300 font-semibold">
-            AUTHENTIC CLIENT PROJECTS & OFFICIAL DELIVERIES
+          <span className="w-2 h-2 rounded-full bg-[#8FC658] animate-pulse shrink-0" />
+          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#0D1B2A] dark:text-slate-300 font-bold">
+            AUTHENTIC CLIENT PROJECTS &amp; OFFICIAL DELIVERIES
           </span>
         </div>
-        <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-[#666666] dark:text-slate-400">
+        <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-[#4C5258] dark:text-slate-400">
           <span className="hidden sm:inline">Verified Web Platforms Built by TechCrestaX</span>
           <a
             href={companyData.contact.googleBusinessUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[#151515] dark:hover:text-white transition-colors inline-flex items-center gap-1 text-[10px] text-[#666666] dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400"
+            className="hover:text-[#FF6B4A] transition-colors inline-flex items-center gap-1 text-[11px] text-[#4C5258] dark:text-slate-300"
             title="Google Verified Business Profile"
           >
-            <CheckCircle className="w-3 h-3 text-emerald-500 dark:text-emerald-400" />
+            <CheckCircle className="w-3.5 h-3.5 text-[#8FC658]" />
             <span>Google Verified</span>
           </a>
         </div>
@@ -138,8 +138,8 @@ export default function ClientTrust() {
       {/* Marquee Track with gradient fade masks on both sides */}
       <div className="relative w-full overflow-hidden">
         {/* Left & Right fade masks */}
-        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#FFF9F6] dark:from-[#080B11] via-[#FFF9F6]/80 dark:via-[#080B11]/80 to-transparent z-10 transition-colors" />
-        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#FFF9F6] dark:from-[#080B11] via-[#FFF9F6]/80 dark:via-[#080B11]/80 to-transparent z-10 transition-colors" />
+        <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#F8F9FA] dark:from-[#070A0F] to-transparent z-10 transition-colors" />
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#F8F9FA] dark:from-[#070A0F] to-transparent z-10 transition-colors" />
 
         {/* Continuous marquee */}
         <div className="animate-marquee flex items-center gap-4 py-1.5 px-4">
@@ -151,7 +151,7 @@ export default function ClientTrust() {
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl bg-white dark:bg-[#0E131F]/90 border border-[#F0E7E2] dark:border-slate-800/80 hover:border-[#FF572F]/50 dark:hover:border-slate-700 transition-all shadow-xs hover:shadow-md shrink-0 group select-none hover:-translate-y-0.5"
+                className="flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-2xl bg-white dark:bg-[#0D1420] border border-[#EBECEF] dark:border-white/10 hover:border-[#FF6B4A]/50 transition-all shadow-xs hover:shadow-md shrink-0 group select-none hover:-translate-y-0.5"
                 title={`Visit ${project.name} (${project.domain})`}
               >
                 {/* Icon Container with tinted background and border */}
@@ -162,17 +162,17 @@ export default function ClientTrust() {
                 {/* Text info */}
                 <div className="flex flex-col min-w-0 text-left">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-[#151515] dark:text-white tracking-tight group-hover:text-[#FF572F] transition-colors truncate">
+                    <span className="text-sm font-bold text-[#0D1B2A] dark:text-white tracking-tight group-hover:text-[#FF6B4A] transition-colors truncate">
                       {project.name}
                     </span>
                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono font-medium text-emerald-600 dark:text-emerald-400 shrink-0">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#8FC658] animate-pulse" />
                       <span>Live</span>
                     </span>
                   </div>
-                  <div className="text-[11px] font-mono text-[#666666] dark:text-slate-400 truncate max-w-[210px] mt-0.5 flex items-center gap-1">
+                  <div className="text-[11px] font-mono text-[#4C5258] dark:text-slate-400 truncate max-w-[210px] mt-0.5 flex items-center gap-1">
                     <span>{project.domain}</span>
-                    <span className="text-[#CCCCCC] dark:text-slate-600">•</span>
+                    <span className="text-slate-300 dark:text-slate-600">•</span>
                     <span className="truncate">{project.category}</span>
                   </div>
                 </div>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown, ArrowRight, MessageSquare, Search, HelpCircle } from 'lucide-react';
+import { ChevronDown, ArrowRight, MessageSquare, Search } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { companyData } from '../data/companyData';
 import { createBreadcrumbSchema, createFAQSchema } from '../data/seoSchemas';
+import Reveal from '../components/motion/Reveal';
 
 export default function FAQPage() {
   const [openIndex, setOpenIndex] = useState(0);
@@ -101,7 +102,7 @@ export default function FAQPage() {
   };
 
   return (
-    <div className="pt-8 sm:pt-10 pb-16 min-h-screen bg-[#FFF9F6] dark:bg-[#0B0E14] transition-colors">
+    <div className="pt-8 sm:pt-12 pb-20 min-h-screen bg-[#F8F9FA] dark:bg-[#070A0F] transition-colors select-none">
       <SEO
         title="Frequently Asked Questions (FAQ) | TechCrestaX"
         description="Find answers to common questions about TechCrestaX website development costs (starting ₹7,000+), 1-year free maintenance, timelines, mobile responsiveness, and process."
@@ -121,80 +122,89 @@ export default function FAQPage() {
         {/* ====================================================
             HERO
            ==================================================== */}
-        <div className="text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 text-xs font-semibold text-[#FF572F] shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#FF572F] animate-pulse" />
-            <span className="uppercase tracking-widest text-[11px] font-mono">
-              KNOWLEDGE BASE & FAQS
-            </span>
-          </div>
+        <Reveal>
+          <div className="text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#FFF4F0] dark:bg-[#0D1420] border border-[#FF6B4A]/25 text-xs font-semibold text-[#FF6B4A] shadow-2xs">
+              <span className="w-2 h-2 rounded-full bg-[#FF6B4A] animate-pulse" />
+              <span className="uppercase tracking-widest text-[11px] font-mono font-bold">
+                POPULAR QUESTIONS &amp; FAQS
+              </span>
+            </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-[#151515] dark:text-white leading-[1.12]">
-            Frequently Asked <span className="text-[#FF572F]">Questions</span>.
-          </h1>
+            <h1 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-[#0D1B2A] dark:text-white leading-[1.12]">
+              Frequently Asked <span className="bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] bg-clip-text text-transparent">Questions</span>.
+            </h1>
 
-          <p className="text-base sm:text-lg text-[#555555] dark:text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
-            Honest, verified answers about our website development costs, first-year free maintenance, timelines, and technical workflow.
-          </p>
+            <p className="text-base sm:text-lg text-[#4C5258] dark:text-[#94A3B8] max-w-xl mx-auto leading-relaxed">
+              Honest, verified answers about our website development costs, first-year free maintenance, timelines, and technical workflow.
+            </p>
 
-          {/* Search Bar */}
-          <div className="pt-4 max-w-md mx-auto">
-            <div className="relative">
-              <Search className="w-4 h-4 text-[#888888] absolute left-4 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search questions (e.g. pricing, maintenance, timeline)..."
-                className="w-full pl-11 pr-4 py-3 text-xs sm:text-sm rounded-full bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 text-[#151515] dark:text-white placeholder-[#888888] focus:outline-none focus:ring-2 focus:ring-[#FF572F] shadow-xs"
-              />
+            {/* Search Bar */}
+            <div className="pt-4 max-w-md mx-auto">
+              <div className="relative">
+                <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search questions (e.g. pricing, maintenance, timeline)..."
+                  className="w-full pl-11 pr-4 py-3 text-xs sm:text-sm rounded-full bg-white dark:bg-[#0D1420] border border-[#EBECEF] dark:border-white/10 text-[#0D1B2A] dark:text-white placeholder-[#7A828B] focus:outline-none focus:ring-2 focus:ring-[#FF6B4A] shadow-xs"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* ====================================================
             ACCORDION LIST
            ==================================================== */}
         <div className="space-y-3.5">
           {filteredFaqs.length === 0 ? (
-            <div className="text-center py-12 bg-white dark:bg-[#121824] rounded-2xl border border-[#F0E7E2] dark:border-white/10 text-sm text-[#666666] dark:text-[#94A3B8]">
+            <div className="text-center py-12 bg-white dark:bg-[#0D1420] rounded-2xl border border-[#EBECEF] dark:border-white/10 text-sm text-[#4C5258] dark:text-[#94A3B8]">
               No questions found matching "{searchQuery}". Try searching for pricing, maintenance, or e-commerce.
             </div>
           ) : (
             filteredFaqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
-                <div
-                  key={index}
-                  className="rounded-2xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 overflow-hidden shadow-2xs transition-colors"
-                >
-                  <button
-                    type="button"
-                    onClick={() => setOpenIndex(isOpen ? -1 : index)}
-                    aria-expanded={isOpen}
-                    aria-controls={`faq-answer-${index}`}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#151515] dark:text-white hover:text-[#FF572F] transition-colors cursor-pointer select-none"
+                <Reveal key={index} delay={Math.min(index * 40, 300)}>
+                  <div
+                    className={`rounded-2xl bg-white dark:bg-[#0D1420] border transition-all duration-300 overflow-hidden shadow-2xs ${
+                      isOpen
+                        ? 'border-[#FF6B4A]/50 shadow-md shadow-[#FF6B4A]/5'
+                        : 'border-[#EBECEF] dark:border-white/10 hover:border-[#FF6B4A]/30'
+                    }`}
                   >
-                    <span className="flex items-center gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#FF572F] shrink-0" />
-                      <span>{faq.q}</span>
-                    </span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-[#FF572F] shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
-
-                  {isOpen && (
-                    <div 
-                      id={`faq-answer-${index}`}
-                      className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-[#555555] dark:text-[#94A3B8] leading-relaxed border-t border-[#F0E7E2]/60 dark:border-white/5 animate-in fade-in duration-200"
+                    <button
+                      type="button"
+                      onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${index}`}
+                      className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-base sm:text-lg text-[#0D1B2A] dark:text-white hover:text-[#FF6B4A] transition-colors cursor-pointer select-none"
                     >
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
+                      <span className="flex items-center gap-3">
+                        <span className={`w-2 h-2 rounded-full transition-colors duration-200 ${isOpen ? 'bg-[#FF6B4A]' : 'bg-[#FF6B4A]/40'} shrink-0`} />
+                        <span>{faq.q}</span>
+                      </span>
+                      <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors duration-200 ${isOpen ? 'bg-[#FFF4F0] text-[#FF6B4A]' : 'bg-transparent text-slate-400'}`}>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-300 ease-out ${
+                            isOpen ? 'rotate-180 text-[#FF6B4A]' : ''
+                          }`}
+                        />
+                      </div>
+                    </button>
+
+                    {isOpen && (
+                      <div 
+                        id={`faq-answer-${index}`}
+                        className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm text-[#4C5258] dark:text-[#94A3B8] leading-relaxed border-t border-slate-100 dark:border-white/5 animate-fade-in-up"
+                      >
+                        {faq.a}
+                      </div>
+                    )}
+                  </div>
+                </Reveal>
               );
             })
           )}
@@ -203,36 +213,38 @@ export default function FAQPage() {
         {/* ====================================================
             STILL HAVE QUESTIONS?
            ==================================================== */}
-        <div className="p-8 sm:p-12 rounded-3xl bg-[#FFF0E9] dark:bg-[#161D2B] border border-[#FCD5C8] dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div className="space-y-1">
-            <h3 className="text-xl sm:text-2xl font-bold font-display text-[#151515] dark:text-white">
-              Have a Question That Isn't Answered Here?
-            </h3>
-            <p className="text-xs sm:text-sm text-[#666666] dark:text-[#94A3B8]">
-              Chat directly with our engineering team on WhatsApp or send us an inquiry.
-            </p>
-          </div>
+        <Reveal delay={80}>
+          <div className="p-8 sm:p-12 rounded-3xl bg-[#0D1B2A] border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left shadow-xl text-white">
+            <div className="space-y-1">
+              <h3 className="text-xl sm:text-2xl font-bold font-display text-white">
+                Have a Question That Isn't Answered Here?
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-300">
+                Chat directly with our engineering team on WhatsApp or send us an inquiry.
+              </p>
+            </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-            <a
-              href={companyData.contact.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-sm transition-all"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Ask on WhatsApp</span>
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+              <a
+                href={companyData.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm button-press-scale shadow-sm transition-all"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Ask on WhatsApp</span>
+              </a>
 
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white dark:bg-[#121824] hover:bg-slate-50 text-[#151515] dark:text-white border border-[#F0E7E2] dark:border-white/10 font-bold text-xs sm:text-sm transition-all"
-            >
-              <span>Contact Page</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/15 font-bold text-xs sm:text-sm button-press-scale transition-all"
+              >
+                <span>Contact Page</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </div>

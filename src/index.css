@@ -4,85 +4,96 @@
 
 @layer base {
   :root {
-    --bg-canvas: #FFF9F6;
+    /* Alpha Agency Primary Blueprint Palette */
+    --ax-prime-c: #FF6B4A;
+    --ax-color1: #FF7C42;
+    --ax-color2: #FFB627;
+    --ax-prime-c2: #8FC658;
+    --ax-title-color: #0D1B2A;
+    --ax-title-color2: #041427;
+    --ax-body-color: #4C5258;
+    --ax-body-color2: #313130;
+    --ax-gradient1: linear-gradient(90deg, #FF6B4A 0%, #FFB627 100%);
+
+    --bg-canvas: #F8F9FA;
     --bg-surface: #FFFFFF;
-    --bg-surface-subtle: #FFF0E9;
-    --bg-dark-section: #0B0E14;
-    --border-subtle: #F0E7E2;
-    --border-hover: #E2D7D0;
+    --bg-surface-subtle: #FFF4F0;
+    --bg-dark-section: #0D1B2A;
+    --border-subtle: #EBECEF;
+    --border-hover: #D8DCE3;
     
-    /* TechCrestaX Official Palette */
-    --accent-orange: #FF572F;
-    --accent-orange-hover: #E94725;
-    --accent-orange-active: #D83B1A;
-    --accent-orange-soft: #FFF0E9;
-    --accent-orange-subtle: rgba(255, 87, 47, 0.08);
-    --accent-orange-border: #FCD5C8;
-    --accent-orange-text: #D83B1A;
+    /* Alpha Agency Accent Mappings */
+    --accent-orange: #FF6B4A;
+    --accent-orange-hover: #FF7C42;
+    --accent-orange-active: #E6400A;
+    --accent-orange-soft: #FFF4F0;
+    --accent-orange-subtle: rgba(255, 107, 74, 0.08);
+    --accent-orange-border: rgba(255, 107, 74, 0.25);
+    --accent-orange-text: #E6400A;
 
-    /* Compatibility aliases */
-    --accent-coral: #FF572F;
-    --accent-coral-hover: #E94725;
-    --accent-coral-active: #D83B1A;
-    --accent-coral-soft: #FFF0E9;
-    --accent-coral-subtle: rgba(255, 87, 47, 0.08);
-    --accent-coral-border: #FCD5C8;
-    --accent-coral-text: #D83B1A;
+    /* Aliases */
+    --accent-coral: #FF6B4A;
+    --accent-coral-hover: #FF7C42;
+    --accent-coral-active: #E6400A;
+    --accent-coral-soft: #FFF4F0;
+    --accent-coral-subtle: rgba(255, 107, 74, 0.08);
+    --accent-coral-border: rgba(255, 107, 74, 0.25);
+    --accent-coral-text: #E6400A;
 
-    --accent-blush: #FF572F;
-    --accent-blush-soft: #FFF0E9;
-    --accent-blush-subtle: rgba(255, 87, 47, 0.08);
-    --accent-blush-border: #FCD5C8;
-    --accent-blush-text: #D83B1A;
-    --accent-blush-hover: #E94725;
+    --accent-blush: #FF6B4A;
+    --accent-blush-soft: #FFF4F0;
+    --accent-blush-subtle: rgba(255, 107, 74, 0.08);
+    --accent-blush-border: rgba(255, 107, 74, 0.25);
+    --accent-blush-text: #E6400A;
+    --accent-blush-hover: #FF7C42;
 
-    --text-primary: #151515;
-    --text-secondary: #555555;
-    --text-muted: #888888;
+    --text-primary: #0D1B2A;
+    --text-secondary: #4C5258;
+    --text-muted: #7A828B;
   }
 
   html.dark {
-    --background: #0B0E14;
-    --background-secondary: #101620;
-    --surface: #141B26;
-    --surface-elevated: #1B2433;
-    --accent: #FF572F;
-    --accent-bright: #FF6E4A;
-    --border-subtle: rgba(255, 255, 255, 0.1);
-    --glow-accent: rgba(255, 87, 47, 0.25);
+    --background: #070A0F;
+    --background-secondary: #0D1420;
+    --surface: #0F1726;
+    --surface-elevated: #152033;
+    --accent: #FF6B4A;
+    --accent-bright: #FF7C42;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --glow-accent: rgba(255, 107, 74, 0.25);
 
-    --bg-canvas: #0B0E14;
-    --bg-surface: #121824;
-    --bg-surface-subtle: #18202E;
-    --bg-surface-elevated: #1E283A;
-    --bg-dark-section: #0B0E14;
-    --border-hover: rgba(255, 255, 255, 0.18);
+    --bg-canvas: #070A0F;
+    --bg-surface: #0D1420;
+    --bg-surface-subtle: #121C2B;
+    --bg-surface-elevated: #162234;
+    --bg-dark-section: #05080E;
+    --border-hover: rgba(255, 255, 255, 0.16);
 
-    --accent-orange: #FF572F;
-    --accent-orange-hover: #FF6E4A;
-    --accent-orange-active: #E94725;
-    --accent-orange-soft: rgba(255, 87, 47, 0.16);
-    --accent-orange-subtle: rgba(255, 87, 47, 0.09);
-    --accent-orange-border: rgba(255, 87, 47, 0.4);
-    --accent-orange-text: #FF6E4A;
+    --accent-orange: #FF6B4A;
+    --accent-orange-hover: #FF7C42;
+    --accent-orange-active: #E6400A;
+    --accent-orange-soft: rgba(255, 107, 74, 0.16);
+    --accent-orange-subtle: rgba(255, 107, 74, 0.09);
+    --accent-orange-border: rgba(255, 107, 74, 0.35);
+    --accent-orange-text: #FF7C42;
 
-    --accent-coral: #FF572F;
-    --accent-coral-bright: #FF6E4A;
-    --accent-coral-hover: #FF6E4A;
-    --accent-coral-active: #E94725;
-    --accent-coral-soft: rgba(255, 87, 47, 0.16);
-    --accent-coral-subtle: rgba(255, 87, 47, 0.09);
-    --accent-coral-border: rgba(255, 87, 47, 0.4);
-    --accent-coral-text: #FF6E4A;
+    --accent-coral: #FF6B4A;
+    --accent-coral-bright: #FF7C42;
+    --accent-coral-hover: #FF7C42;
+    --accent-coral-active: #E6400A;
+    --accent-coral-soft: rgba(255, 107, 74, 0.16);
+    --accent-coral-subtle: rgba(255, 107, 74, 0.09);
+    --accent-coral-border: rgba(255, 107, 74, 0.35);
+    --accent-coral-text: #FF7C42;
 
-    --accent-blush: #FF572F;
-    --accent-blush-soft: rgba(255, 87, 47, 0.16);
-    --accent-blush-subtle: rgba(255, 87, 47, 0.09);
-    --accent-blush-border: rgba(255, 87, 47, 0.4);
-    --accent-blush-text: #FF6E4A;
-    --accent-blush-hover: rgba(255, 87, 47, 0.25);
+    --accent-blush: #FF6B4A;
+    --accent-blush-soft: rgba(255, 107, 74, 0.16);
+    --accent-blush-subtle: rgba(255, 107, 74, 0.09);
+    --accent-blush-border: rgba(255, 107, 74, 0.35);
+    --accent-blush-text: #FF7C42;
+    --accent-blush-hover: rgba(255, 107, 74, 0.25);
 
-    --text-primary: #F8FAFC;
+    --text-primary: #FFFFFF;
     --text-secondary: #94A3B8;
     --text-muted: #64748B;
   }
@@ -90,14 +101,14 @@
   body {
     background-color: var(--bg-canvas);
     color: var(--text-primary);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   h1, h2, h3, h4, h5, h6, .font-display {
-    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Figtree', 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.025em;
   }
 
@@ -782,5 +793,98 @@ html.dark :focus-visible {
   animation-play-state: paused;
 }
 
+/* ====================================================
+   ALPHA AGENCY & EDITORIAL MOTION SYSTEM
+   ==================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
 
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale3d(0.96, 0.96, 1);
+  }
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
 
+@keyframes floatSlow1 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, 7px, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-float-1 {
+  animation: floatSlow1 5.5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatSlow2 6.5s ease-in-out infinite;
+}
+
+.animation-delay-75 { animation-delay: 75ms; }
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-150 { animation-delay: 150ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-250 { animation-delay: 250ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+.card-hover-lift {
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+.card-hover-lift:hover {
+  transform: translate3d(0, -6px, 0);
+}
+
+.button-press-scale {
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease, background-color 0.2s ease;
+}
+.button-press-scale:hover {
+  transform: translate3d(0, -2px, 0);
+}
+.button-press-scale:active {
+  transform: scale3d(0.97, 0.97, 1);
+}
+
+/* Accessible reduced-motion handling */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

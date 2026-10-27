@@ -8,7 +8,8 @@ import {
   MapPin, 
   ChevronRight,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  Sparkles
 } from 'lucide-react';
 import { companyData } from '../../data/companyData';
 
@@ -44,21 +45,21 @@ export default function Footer() {
   const navLinks = [
     { title: 'Home', path: '/' },
     { title: 'Services', path: '/services' },
-    { title: 'Work', path: '/work' },
+    { title: 'Work & Projects', path: '/work' },
     { title: 'About Us', path: '/about' },
-    { title: 'Pricing & Maintenance', path: '/pricing' },
-    { title: 'Blog & Insights', path: '/blog' },
+    { title: 'Pricing & Plans', path: '/pricing' },
+    { title: 'Blog & Articles', path: '/blog' },
     { title: 'FAQ', path: '/faq' },
     { title: 'Contact', path: '/contact' },
   ];
 
   const serviceLinks = [
-    { title: 'Website Design & Development', path: '/services#website-design-development' },
-    { title: 'E-commerce Website Development', path: '/services#ecommerce-website-development' },
-    { title: 'Web Applications & Platforms', path: '/services#web-applications-platforms' },
-    { title: 'UI/UX Design', path: '/services#ui-ux-design' },
-    { title: 'SEO & Local SEO', path: '/services#seo-local-seo' },
-    { title: 'Digital Growth & Online Presence', path: '/services#digital-growth-online-presence' },
+    { title: 'Websites That Convert', path: '/services#website-design-development' },
+    { title: 'E-commerce & Portals', path: '/services#ecommerce-website-development' },
+    { title: 'Web Applications & SaaS', path: '/services#web-applications-platforms' },
+    { title: 'UI/UX & Product Design', path: '/services#ui-ux-design' },
+    { title: 'SEO & Organic Growth', path: '/services#seo-local-seo' },
+    { title: 'Performance Strategy', path: '/services#digital-growth-online-presence' },
   ];
 
   const handleLogoClick = (e) => {
@@ -72,39 +73,92 @@ export default function Footer() {
 
   return (
     <footer 
-      className="w-full bg-white dark:bg-[#070A0F] border-t border-[#F0E7E2] dark:border-white/10 text-[#555555] dark:text-[#94A3B8] relative select-none transition-colors"
+      className="w-full bg-[#0D1B2A] text-slate-300 relative select-none border-t border-white/10"
       role="contentinfo"
       aria-label="Site Footer"
     >
+      {/* Top Pre-Footer Banner (Alpha Agency Signature Newsletter / Consultation Call-out) */}
+      <div className="border-b border-white/10 bg-[#070F1A]/80 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+            <div className="space-y-1.5 max-w-xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6B4A]/15 border border-[#FF6B4A]/30 text-[#FF7C42] text-xs font-semibold">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>360° DIGITAL SOLUTION FOR BUSINESSES</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Ready to Build a Website That Drives Real Growth?
+              </h2>
+              <p className="text-sm text-slate-400">
+                Custom engineering, transparent scope, and 1 year of free dedicated maintenance on every project.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+              <Link
+                to="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 pl-6 pr-2 py-2.5 rounded-full bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] hover:from-[#FF7C42] hover:to-[#FFA700] text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-[#FF6B4A]/25 hover:-translate-y-0.5 group"
+              >
+                <span>Get In Touch</span>
+                <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-[#FF6B4A] transition-all">
+                  <ArrowUpRight className="w-4 h-4" />
+                </span>
+              </Link>
+              <a
+                href={companyData.contact.whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/15 text-xs font-bold transition-colors"
+              >
+                <MessageSquare className="w-4 h-4 text-[#8FC658]" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-[#F0E7E2] dark:border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           
           {/* Column 1: Brand & Positioning (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <a 
               href="/" 
               onClick={handleLogoClick}
-              className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF572F] rounded-xl cursor-pointer"
+              className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A] rounded-xl cursor-pointer"
               aria-label="TechCrestaX Homepage"
             >
               <img
                 src="/logo.png"
                 alt="TechCrestaX Logo"
-                className="w-10 h-10 rounded-xl object-contain border border-[#F0E7E2] dark:border-white/10 group-hover:scale-105 transition-transform"
+                className="w-10 h-10 rounded-xl object-contain border border-white/10 group-hover:scale-105 transition-transform"
               />
               <div>
-                <span className="font-display font-extrabold text-xl tracking-tight text-[#151515] dark:text-white block">
-                  TechCresta<span className="text-[#FF572F]">X</span>
+                <span className="font-display font-extrabold text-xl tracking-tight text-white block">
+                  TechCresta<span className="bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] bg-clip-text text-transparent">X</span>
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-[#666666] dark:text-[#94A3B8] block uppercase">
+                <span className="text-[10px] font-mono tracking-widest text-slate-400 block uppercase">
                   DIGITAL ENGINEERING STUDIO
                 </span>
               </div>
             </a>
 
-            <p className="text-xs sm:text-sm text-[#666666] dark:text-[#94A3B8] leading-relaxed max-w-sm">
-              We build digital experiences that move businesses forward. Strategic design, modern development, and dependable post-launch support.
+            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+              We engineer high-performance web solutions that turn visitors into revenue. Strategy, design, development, and dependable post-launch support.
             </p>
+
+            {/* Preserved Key Highlights */}
+            <div className="pt-1 flex flex-wrap gap-2 text-[11px] font-medium text-slate-300">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+                <CheckCircle2 className="w-3.5 h-3.5 text-[#8FC658]" />
+                <span>30+ Projects Delivered</span>
+              </span>
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B4A]" />
+                <span>100% Code Ownership</span>
+              </span>
+            </div>
 
             {/* Social Channels */}
             <div className="pt-2 flex items-center gap-3">
@@ -113,44 +167,45 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#F0E7E2] dark:border-white/[0.09] bg-[#FFF9F6] dark:bg-white/[0.025] text-[#151515] dark:text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/40 hover:bg-pink-500/10 hover:text-pink-500 dark:hover:text-pink-400"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/40 hover:bg-pink-500/15 hover:text-pink-400"
               >
-                <InstagramIcon className="w-[18px] h-[18px]" />
+                <InstagramIcon className="w-4 h-4" />
               </a>
               <a
                 href={companyData.socials.linkedin}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#F0E7E2] dark:border-white/[0.09] bg-[#FFF9F6] dark:bg-white/[0.025] text-[#151515] dark:text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:bg-blue-500/10 hover:text-blue-500 dark:hover:text-blue-400"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:bg-blue-500/15 hover:text-blue-400"
               >
-                <LinkedInIcon className="w-[18px] h-[18px]" />
+                <LinkedInIcon className="w-4 h-4" />
               </a>
               <a
                 href={companyData.socials.facebook}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
-                className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#F0E7E2] dark:border-white/[0.09] bg-[#FFF9F6] dark:bg-white/[0.025] text-[#151515] dark:text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600/40 hover:bg-blue-600/10 hover:text-blue-600 dark:hover:text-blue-500"
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600/40 hover:bg-blue-600/15 hover:text-blue-400"
               >
-                <FacebookIcon className="w-[16px] h-[18px]" />
+                <FacebookIcon className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Navigation Links (2.5 cols) */}
+          {/* Column 2: Quick Links (Alpha Agency "QUICK LINKS") (2.5 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-[#151515] dark:text-white font-bold">
-              Navigation
+            <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B4A]" />
+              <span>Quick Links</span>
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm">
               {navLinks.map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className="hover:text-[#FF572F] transition-colors flex items-center gap-1.5 group"
+                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-[#FF572F] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#FF6B4A] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                     <span>{item.title}</span>
                   </Link>
                 </li>
@@ -158,19 +213,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Services (3 cols) */}
+          {/* Column 3: Services (Alpha Agency "OUR SERVICES") (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-[#151515] dark:text-white font-bold">
-              Services
+            <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFB627]" />
+              <span>Our Services</span>
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm">
               {serviceLinks.map((item) => (
                 <li key={item.title}>
                   <Link
                     to={item.path}
-                    className="hover:text-[#FF572F] transition-colors flex items-center gap-1.5 group"
+                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-[#FF572F] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#FFB627] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
                     <span>{item.title}</span>
                   </Link>
                 </li>
@@ -178,10 +234,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Location & WhatsApp Inquiry (2.5 cols) */}
+          {/* Column 4: Location & WhatsApp Inquiry (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-wider text-[#151515] dark:text-white font-bold">
-              Get in Touch
+            <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#8FC658]" />
+              <span>Contact</span>
             </h3>
             <div className="space-y-2.5 text-xs">
               <a
@@ -190,31 +247,31 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 title="Open TechCrestaX Office on Google Maps"
                 aria-label="Open TechCrestaX Office on Google Maps"
-                className="group flex items-start gap-2 text-[#666666] dark:text-[#94A3B8] hover:text-[#FF572F] dark:hover:text-[#FF572F] transition-all duration-200 cursor-pointer"
+                className="group flex items-start gap-2 text-slate-400 hover:text-white transition-all duration-200 cursor-pointer"
               >
-                <MapPin className="w-4 h-4 text-[#FF572F] shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-125 group-hover:-translate-y-0.5" />
-                <span className="inline-flex items-center gap-1 group-hover:underline underline-offset-4 decoration-[#FF572F]/50">
+                <MapPin className="w-4 h-4 text-[#FF6B4A] shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-125" />
+                <span className="inline-flex items-center gap-1 group-hover:underline underline-offset-4 decoration-[#FF6B4A]/50">
                   <span>Rajkot, Gujarat, India</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#FF572F] opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-200 shrink-0" />
+                  <ArrowUpRight className="w-3 h-3 text-[#FF6B4A] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </span>
               </a>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#FF572F] shrink-0" />
+              <div className="flex items-center gap-2 text-slate-400">
+                <Mail className="w-4 h-4 text-[#FF6B4A] shrink-0" />
                 <a
                   href={`mailto:${companyData.contact.primaryEmail}`}
-                  className="hover:text-[#FF572F] transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   {companyData.contact.primaryEmail}
                 </a>
               </div>
 
-              {/* WhatsApp CTA button (NO visible phone number text!) */}
+              {/* WhatsApp CTA button (Strictly ZERO visible phone numbers!) */}
               <div className="pt-2">
                 <a
                   href={companyData.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500 text-emerald-600 hover:text-white dark:text-emerald-400 dark:hover:text-white border border-emerald-500/30 font-semibold text-xs transition-all shadow-2xs group"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 font-semibold text-xs transition-all shadow-2xs group"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Chat on WhatsApp</span>
@@ -226,8 +283,8 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar: Copyright, Privacy & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#666666] dark:text-[#94A3B8]">
+        {/* Bottom Bar: Copyright & Back to Top */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
             <span>© {new Date().getFullYear()} TechCrestaX. All rights reserved.</span>
             <span className="hidden sm:inline">•</span>
@@ -235,14 +292,14 @@ export default function Footer() {
           </div>
 
           <div className="flex items-center gap-5">
-            <Link to="/privacy" className="hover:text-[#FF572F] transition-colors">
+            <Link to="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <span>•</span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="w-8 h-8 rounded-full border border-[#F0E7E2] dark:border-white/10 hover:border-[#FF572F] bg-[#FFF9F6] dark:bg-[#121824] hover:bg-[#FF572F] hover:text-white text-[#555555] dark:text-[#94A3B8] flex items-center justify-center transition-all cursor-pointer"
+              className="w-8 h-8 rounded-full border border-white/10 hover:border-[#FF6B4A] bg-white/5 hover:bg-[#FF6B4A] hover:text-white text-slate-300 flex items-center justify-center transition-all cursor-pointer"
               aria-label="Scroll to top of page"
             >
               <ArrowUp className="w-4 h-4" />

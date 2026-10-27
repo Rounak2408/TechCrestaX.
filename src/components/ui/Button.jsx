@@ -27,16 +27,16 @@ export default function Button({
   };
 
   const variantStyles = {
-    primary: "bg-[#0f172a] text-white hover:bg-[#1e293b] dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100 shadow-sm hover:shadow active:scale-[0.99]",
-    coral: "bg-[#FF6248] text-white font-semibold hover:bg-[#FF7957] shadow-md hover:shadow-[0_10px_25px_-5px_rgba(255,98,72,0.5)] active:scale-[0.99]",
-    blush: "bg-[#FF6248] text-white font-semibold hover:bg-[#FF7957] shadow-md hover:shadow-[0_10px_25px_-5px_rgba(255,98,72,0.5)] active:scale-[0.99]",
-    secondary: "bg-white text-[#0f172a] dark:bg-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 hover:border-[#FF6248]/50 dark:hover:border-[#FF6248]/40 hover:bg-slate-50 dark:hover:bg-slate-700 shadow-xs active:scale-[0.99]",
-    outline: "bg-transparent text-[#0f172a] dark:text-white border border-slate-300 dark:border-slate-700 hover:border-[#FF6248] dark:hover:border-[#FF7957] hover:text-[#FF6248] dark:hover:text-[#FF7957] hover:bg-[#FF6248]/5 active:scale-[0.99]",
-    ghost: "bg-transparent text-[#475569] dark:text-slate-300 hover:text-[#FF6248] dark:hover:text-white hover:bg-[#FF6248]/10 dark:hover:bg-slate-800/70 active:scale-[0.99]",
-    lime: "bg-[#FF6248] text-white font-semibold hover:bg-[#FF7957] shadow-sm active:scale-[0.99]",
-    dark: "bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 shadow-sm",
-    white: "bg-white text-slate-900 font-bold hover:bg-slate-100 shadow-sm active:scale-[0.99]",
-    darkOutline: "bg-[#101722] text-white font-medium border border-white/15 hover:bg-[#151E2A] hover:border-white/30 shadow-xs active:scale-[0.99]",
+    primary: "bg-gradient-to-r from-[#FF6B4A] via-[#FF7C42] to-[#FFB627] text-white font-bold shadow-md hover:shadow-lg shadow-[#FF6B4A]/25 active:scale-[0.99]",
+    coral: "bg-gradient-to-r from-[#FF6B4A] via-[#FF7C42] to-[#FFB627] text-white font-bold shadow-md hover:shadow-lg shadow-[#FF6B4A]/25 active:scale-[0.99]",
+    blush: "bg-gradient-to-r from-[#FF6B4A] via-[#FF7C42] to-[#FFB627] text-white font-bold shadow-md hover:shadow-lg shadow-[#FF6B4A]/25 active:scale-[0.99]",
+    secondary: "bg-white text-[#0D1B2A] dark:bg-[#0D1B2A] dark:text-white border border-[#EBECEF] dark:border-white/10 hover:border-[#FF6B4A] shadow-xs active:scale-[0.99]",
+    outline: "bg-transparent text-[#0D1B2A] dark:text-white border border-[#EBECEF] dark:border-white/15 hover:border-[#FF6B4A] hover:text-[#FF6B4A] active:scale-[0.99]",
+    ghost: "bg-transparent text-[#4C5258] dark:text-slate-300 hover:text-[#FF6B4A] dark:hover:text-white hover:bg-[#FF6B4A]/10 active:scale-[0.99]",
+    lime: "bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] text-white font-bold shadow-sm active:scale-[0.99]",
+    dark: "bg-[#0D1B2A] text-white hover:bg-black shadow-md",
+    white: "bg-white text-[#0D1B2A] font-bold hover:bg-slate-100 shadow-sm active:scale-[0.99]",
+    darkOutline: "bg-[#0D1B2A] text-white font-medium border border-white/15 hover:bg-black hover:border-white/30 shadow-xs active:scale-[0.99]",
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size] || sizeStyles.md} ${variantStyles[variant] || variantStyles.primary} ${className}`;

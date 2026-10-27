@@ -7,13 +7,13 @@ import GlobalAtmosphere from '../visuals/background/GlobalAtmosphere';
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFF9F6] dark:bg-[#0B0E14] text-[#151515] dark:text-[#F8FAFC] selection:bg-[#FFF0E9] selection:text-[#FF572F] transition-colors duration-200 font-sans relative">
+    <div className="min-h-screen flex flex-col bg-[#F8F9FA] dark:bg-[#070A0F] text-[#0D1B2A] dark:text-[#F8FAFC] selection:bg-[#FFF4F0] selection:text-[#FF6B4A] transition-colors duration-200 font-sans relative">
       <GlobalAtmosphere />
 
       {/* Skip to Main Content Link for WCAG Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#151515] focus:text-white focus:font-bold focus:rounded-md shadow-xl"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#0D1B2A] focus:text-white focus:font-bold focus:rounded-md shadow-xl"
       >
         Skip to main content
       </a>

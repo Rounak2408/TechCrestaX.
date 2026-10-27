@@ -23,8 +23,8 @@ function RouteLoadingFallback() {
   return (
     <div className="min-h-[50vh] flex items-center justify-center" aria-label="Loading page">
       <div className="flex flex-col items-center gap-3">
-        <div className="w-8 h-8 rounded-full border-2 border-[#FF572F]/20 border-t-[#FF572F] animate-spin" />
-        <span className="text-xs font-mono text-[#666666] dark:text-[#94A3B8]">Loading TechCrestaX...</span>
+        <div className="w-8 h-8 rounded-full border-2 border-[#FF6B4A]/20 border-t-[#FF6B4A] animate-spin" />
+        <span className="text-xs font-mono text-[#4C5258] dark:text-[#94A3B8]">Loading TechCrestaX...</span>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-8 sm:pt-10 pb-16 min-h-screen bg-[#FFF9F6] dark:bg-[#0B0E14] transition-colors">
+    <div className="pt-8 sm:pt-12 pb-20 min-h-screen bg-[#F8F9FA] dark:bg-[#070A0F] transition-colors">
       <SEO
         title="Contact Us — Start Your Project | TechCrestaX"
         description="Let's build something great together. Submit your website or platform requirements to TechCrestaX or chat with our team directly on WhatsApp."
@@ -47,22 +47,22 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
         
         {/* ====================================================
-            PAGE HEADER
+            PAGE HEADER (Alpha Agency Hierarchy)
            ==================================================== */}
         <div className="max-w-3xl space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 text-xs font-semibold text-[#FF572F] shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-[#FF572F] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#0D1B2A] border border-[#EBECEF] dark:border-white/10 text-xs font-semibold text-[#FF6B4A] shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#FF6B4A] animate-pulse" />
             <span className="uppercase tracking-widest text-[11px] font-mono">
-              PROJECT INQUIRIES & WHATSAPP
+              PROJECT INQUIRIES & DIRECT CHAT
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black font-display tracking-tight text-[#151515] dark:text-white leading-[1.12]">
-            Let's Build Something <span className="text-[#FF572F]">Great Together</span>.
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight text-[#0D1B2A] dark:text-white leading-[1.12]">
+            Let's Build Something <span className="bg-gradient-to-r from-[#FF6B4A] via-[#FF7C42] to-[#FFB627] bg-clip-text text-transparent">Great Together</span>.
           </h1>
 
-          <p className="text-base sm:text-lg text-[#555555] dark:text-[#94A3B8] leading-relaxed">
-            Tell us about your business, project requirements, and goals. We respond with technical insights and an itemized quote within 24 hours.
+          <p className="text-base sm:text-lg text-[#4C5258] dark:text-[#94A3B8] leading-relaxed">
+            Tell us about your business, project requirements, and growth targets. We respond with technical insights and an itemized quote within 24 hours.
           </p>
         </div>
 
@@ -75,23 +75,23 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Primary WhatsApp Card (MANDATORY: NO visible phone number!) */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-emerald-500/10 border border-emerald-500/20 space-y-4">
-              <div className="flex items-center gap-3">
+            <div className="p-6 sm:p-8 rounded-3xl bg-emerald-500/10 border border-emerald-500/20 space-y-5">
+              <div className="flex items-center gap-3.5">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
                   <MessageSquare className="w-6 h-6 fill-current" />
                 </div>
                 <div>
-                  <h2 className="text-lg font-bold font-display text-[#151515] dark:text-white">
+                  <h2 className="text-lg font-bold font-heading text-[#0D1B2A] dark:text-white">
                     Direct WhatsApp Chat
                   </h2>
-                  <p className="text-xs text-[#666666] dark:text-[#94A3B8]">
+                  <p className="text-xs text-[#4C5258] dark:text-[#94A3B8]">
                     Fastest communication for active scopes
                   </p>
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-[#555555] dark:text-[#94A3B8] leading-relaxed">
-                Connect directly with our engineering team on WhatsApp. Share ideas, request initial estimates, or send your existing specifications.
+              <p className="text-xs sm:text-sm text-[#4C5258] dark:text-[#94A3B8] leading-relaxed">
+                Connect directly with our engineering team on WhatsApp. Share references, discuss timeline expectations, or receive instant feedback on your technical ideas.
               </p>
 
               <div>
@@ -99,33 +99,33 @@ export default function ContactPage() {
                   href={companyData.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-all hover:-translate-y-0.5 group"
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-all hover:-translate-y-0.5 group"
                 >
                   <MessageSquare className="w-4 h-4 fill-current" />
-                  <span>Chat on WhatsApp</span>
+                  <span>Start WhatsApp Discussion</span>
                   <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                 </a>
               </div>
             </div>
 
             {/* Email & Location Card */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 shadow-xs space-y-5">
-              <h3 className="text-base font-bold font-display text-[#151515] dark:text-white">
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#0D1B2A] border border-[#EBECEF] dark:border-white/10 shadow-xs space-y-5">
+              <h3 className="text-base font-bold font-heading text-[#0D1B2A] dark:text-white">
                 Verified Communication Channels
               </h3>
 
               <div className="space-y-4 text-xs sm:text-sm">
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-[#FFF0E9] dark:bg-[#FF572F]/15 text-[#FF572F] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-10 h-10 rounded-2xl bg-[#FFF4F0] dark:bg-[#FF6B4A]/15 text-[#FF6B4A] flex items-center justify-center shrink-0 mt-0.5">
                     <Mail className="w-4 h-4" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#888888] block">
-                      Primary Email
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#8A90A0] block">
+                      Primary Inquiries Email
                     </span>
                     <a
                       href={`mailto:${companyData.contact.primaryEmail}`}
-                      className="font-bold text-[#151515] dark:text-white hover:text-[#FF572F] transition-colors"
+                      className="font-bold text-[#0D1B2A] dark:text-white hover:text-[#FF6B4A] transition-colors"
                     >
                       {companyData.contact.primaryEmail}
                     </a>
@@ -138,21 +138,21 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   title="Open TechCrestaX Studio on Google Maps"
                   aria-label="Open TechCrestaX Studio on Google Maps"
-                  className="group flex items-start gap-3 p-2 -mx-2 rounded-xl hover:bg-[#FFF0E9]/60 dark:hover:bg-[#FF572F]/10 transition-colors cursor-pointer"
+                  className="group flex items-start gap-3.5 p-2.5 -mx-2.5 rounded-2xl hover:bg-[#FFF4F0]/60 dark:hover:bg-white/5 transition-colors cursor-pointer"
                 >
-                  <div className="w-9 h-9 rounded-xl bg-[#FFF0E9] dark:bg-[#FF572F]/15 text-[#FF572F] flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-2xl bg-[#FFF4F0] dark:bg-[#FF6B4A]/15 text-[#FF6B4A] flex items-center justify-center shrink-0 mt-0.5 group-hover:scale-105 transition-transform">
                     <MapPin className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#888888] flex items-center gap-1.5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-[#8A90A0] flex items-center gap-1.5">
                       <span>Studio Headquarters</span>
-                      <ExternalLink className="w-3 h-3 text-[#FF572F] opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <ExternalLink className="w-3 h-3 text-[#FF6B4A] opacity-0 group-hover:opacity-100 transition-opacity" />
                     </span>
-                    <span className="font-bold text-[#151515] dark:text-white group-hover:text-[#FF572F] transition-colors">
+                    <span className="font-bold text-[#0D1B2A] dark:text-white group-hover:text-[#FF6B4A] transition-colors block">
                       {companyData.location.addressString}
                     </span>
-                    <p className="text-[11px] text-[#666666] dark:text-[#94A3B8] mt-0.5">
-                      Click to open office location in Google Maps
+                    <p className="text-[11px] text-[#4C5258] dark:text-[#94A3B8] mt-0.5">
+                      Click to view studio location on Google Maps
                     </p>
                   </div>
                 </a>
@@ -160,23 +160,23 @@ export default function ContactPage() {
             </div>
 
             {/* Next Steps Card */}
-            <div className="p-6 rounded-3xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 space-y-3 shadow-xs">
-              <h3 className="text-sm font-bold font-display text-[#151515] dark:text-white flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#FF572F]" />
+            <div className="p-6 rounded-3xl bg-white dark:bg-[#0D1B2A] border border-[#EBECEF] dark:border-white/10 space-y-3 shadow-xs">
+              <h3 className="text-sm font-bold font-heading text-[#0D1B2A] dark:text-white flex items-center gap-2">
+                <Clock className="w-4 h-4 text-[#FF6B4A]" />
                 <span>What Happens After You Inquire?</span>
               </h3>
-              <ul className="space-y-2 text-xs text-[#555555] dark:text-[#94A3B8] leading-relaxed">
-                <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#FF572F] font-bold">01.</span>
-                  <span>We analyze your project goals and scope within 24 hours.</span>
+              <ul className="space-y-2.5 text-xs text-[#4C5258] dark:text-[#94A3B8] leading-relaxed">
+                <li className="flex items-start gap-2.5">
+                  <span className="font-mono text-[#FF6B4A] font-bold">01.</span>
+                  <span>We analyze your project requirements and goals within 24 hours.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#FF572F] font-bold">02.</span>
-                  <span>We arrange a brief discovery chat via WhatsApp or video call.</span>
+                <li className="flex items-start gap-2.5">
+                  <span className="font-mono text-[#FF6B4A] font-bold">02.</span>
+                  <span>We arrange a brief discovery chat via WhatsApp or Google Meet.</span>
                 </li>
-                <li className="flex items-start gap-2">
-                  <span className="font-mono text-[#FF572F] font-bold">03.</span>
-                  <span>You receive a transparent, itemized proposal and milestone roadmap.</span>
+                <li className="flex items-start gap-2.5">
+                  <span className="font-mono text-[#FF6B4A] font-bold">03.</span>
+                  <span>You receive a transparent, itemized scope and milestone-driven proposal.</span>
                 </li>
               </ul>
             </div>

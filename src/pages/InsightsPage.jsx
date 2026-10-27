@@ -40,7 +40,7 @@ export default function InsightsPage() {
   };
 
   return (
-    <div className="pt-8 sm:pt-10 pb-16 min-h-screen bg-[#FFF9F6] dark:bg-[#0B0E14] transition-colors">
+    <div className="pt-8 sm:pt-12 pb-20 min-h-screen bg-[#F8F9FA] dark:bg-[#070A0F] transition-colors">
       <SEO
         title="Blog & Engineering Insights — TechCrestaX"
         description="Read engineering insights, frontend performance benchmarks, Core Web Vitals optimization guides, and UI/UX architecture strategies from TechCrestaX."
@@ -59,26 +59,19 @@ export default function InsightsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ label: 'Blog & Insights' }]} />
 
-        {/* Page Header */}
-        <div className="max-w-3xl mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF0E9] dark:bg-[#121824] border border-[#FCD5C8] dark:border-white/10 text-xs font-semibold text-[#FF572F] mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#FF572F]" />
-            <span className="uppercase tracking-widest text-[11px] font-mono">TECHNICAL METHODOLOGY</span>
+        {/* Page Header (Alpha Agency Hierarchy) */}
+        <div className="max-w-3xl mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#0D1B2A] border border-[#EBECEF] dark:border-white/10 text-xs font-semibold text-[#FF6B4A] mb-4 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#FF6B4A] animate-pulse" />
+            <span className="uppercase tracking-widest text-[11px] font-mono">BLOG &amp; ARTICLES</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-display tracking-tight text-[#151515] dark:text-white mb-4">
-            Engineering Insights. <span className="text-[#FF572F]">Design</span> Philosophy.
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black font-heading tracking-tight text-[#0D1B2A] dark:text-white mb-4 leading-[1.12]">
+            Engineering Insights. <span className="bg-gradient-to-r from-[#FF6B4A] via-[#FF7C42] to-[#FFB627] bg-clip-text text-transparent">Design Philosophy</span>.
           </h1>
-          <p className="text-base sm:text-lg text-[#555555] dark:text-[#94A3B8] leading-relaxed font-normal">
-            Technical analysis, frontend performance strategies, and user experience methodologies developed by the TechCrestaX engineering team.
+          <p className="text-base sm:text-lg text-[#4C5258] dark:text-[#94A3B8] leading-relaxed">
+            Technical analysis, frontend performance strategies, and digital product principles developed by the TechCrestaX engineering team.
           </p>
-
-          <div className="mt-6 p-4 rounded-2xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 text-xs sm:text-sm text-[#555555] dark:text-[#94A3B8] shadow-xs">
-            <span className="text-[#FF572F] font-mono font-bold uppercase tracking-wider block mb-1">
-              Methodology &amp; Engineering Standards
-            </span>
-            Articles published here represent our technical approach to modern web architecture, Core Web Vitals sub-second loading, and robust design systems.
-          </div>
         </div>
 
         {/* Articles Grid */}
@@ -86,26 +79,26 @@ export default function InsightsPage() {
           {insightsData.map((article) => (
             <article
               key={article.id}
-              className="group bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 hover:border-[#FF572F]/60 rounded-3xl p-6 sm:p-8 transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
+              className="group bg-white dark:bg-[#0D1B2A] border border-[#EBECEF] dark:border-white/10 hover:border-[#FF6B4A]/60 rounded-3xl p-6 sm:p-8 transition-all duration-300 shadow-xs hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between text-xs font-mono text-[#666666] dark:text-[#94A3B8] mb-4">
-                  <span className="text-[#FF572F] font-bold px-2.5 py-1 rounded-full bg-[#FFF0E9] dark:bg-[#FF572F]/15 border border-[#FCD5C8] dark:border-white/10">
+                <div className="flex items-center justify-between text-xs font-mono text-[#8A90A0] mb-4">
+                  <span className="text-[#FF6B4A] font-bold px-3 py-1 rounded-full bg-[#FFF4F0] dark:bg-[#FF6B4A]/15 border border-[#FF6B4A]/20">
                     {article.category}
                   </span>
-                  <span className="flex items-center gap-1.5 font-medium">
-                    <Clock className="w-3.5 h-3.5" />
+                  <span className="flex items-center gap-1.5 font-medium text-[#4C5258] dark:text-[#94A3B8]">
+                    <Clock className="w-3.5 h-3.5 text-[#FF6B4A]" />
                     {article.readTime}
                   </span>
                 </div>
 
-                <h2 className="text-xl sm:text-2xl font-bold font-display text-[#151515] dark:text-white group-hover:text-[#FF572F] transition-colors mb-3 leading-snug">
+                <h2 className="text-xl sm:text-2xl font-bold font-heading text-[#0D1B2A] dark:text-white group-hover:text-[#FF6B4A] transition-colors mb-3 leading-snug">
                   <Link to={`/blog/${article.slug}`}>
                     {article.title}
                   </Link>
                 </h2>
 
-                <p className="text-sm sm:text-base text-[#555555] dark:text-[#94A3B8] leading-relaxed mb-6">
+                <p className="text-sm sm:text-base text-[#4C5258] dark:text-[#94A3B8] leading-relaxed mb-6">
                   {article.summary}
                 </p>
 
@@ -113,7 +106,7 @@ export default function InsightsPage() {
                   {article.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs font-mono text-[#555555] dark:text-[#94A3B8] bg-[#FFF9F6] dark:bg-[#1A2230] border border-[#F0E7E2] dark:border-white/10 px-2.5 py-1 rounded-lg"
+                      className="text-xs font-mono text-[#4C5258] dark:text-[#94A3B8] bg-[#F8F9FA] dark:bg-[#152336] border border-[#EBECEF] dark:border-white/10 px-2.5 py-1 rounded-lg"
                     >
                       #{tag}
                     </span>
@@ -121,16 +114,16 @@ export default function InsightsPage() {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-[#F0E7E2] dark:border-white/10 flex items-center justify-between text-xs sm:text-sm">
+              <div className="pt-4 border-t border-[#EBECEF] dark:border-white/10 flex items-center justify-between text-xs sm:text-sm">
                 <Link
                   to={`/blog/${article.slug}`}
-                  className="font-bold text-[#151515] dark:text-white group-hover:text-[#FF572F] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                  className="font-bold text-[#0D1B2A] dark:text-white group-hover:text-[#FF6B4A] inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                 >
                   <span>Read Article</span>
-                  <ArrowUpRight className="w-4 h-4 text-[#FF572F] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 text-[#FF6B4A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
 
-                <span className="text-[#888888] dark:text-[#64748B] font-mono text-xs">
+                <span className="text-[#8A90A0] font-mono text-xs">
                   {article.date}
                 </span>
               </div>
