@@ -282,11 +282,11 @@ export default function ServicesOverview() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
           
           {/* PANEL 1: LEFT NAV BUTTONS (col-span-4) */}
-          <div className="lg:col-span-4 flex flex-col justify-between">
+          <div className="lg:col-span-4 flex flex-col justify-between space-y-3">
             <div 
               role="tablist" 
               aria-label="Service disciplines"
-              className="flex lg:flex-col overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 gap-2.5 no-scrollbar"
+              className="flex flex-col gap-2.5 sm:gap-3 w-full"
             >
               {services.map((svc, idx) => {
                 const isActive = activeIdx === idx;
@@ -309,39 +309,36 @@ export default function ServicesOverview() {
                       }
                     }}
                     style={{ transitionTimingFunction: easeCurve }}
-                    className={`group relative text-left p-4 sm:p-4.5 rounded-2xl transition-all duration-300 flex items-center justify-between shrink-0 lg:shrink cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A] ${
+                    className={`group relative w-full text-left p-4 sm:p-4.5 rounded-2xl transition-all duration-300 flex items-center justify-between cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-[#FF6B4A] ${
                       isActive 
-                        ? 'bg-[#121A2A] border border-[#FF6B4A] shadow-[0_0_25px_rgba(255,107,74,0.3)] text-white' 
-                        : 'bg-[#0B1220]/70 hover:bg-[#0E1626] border border-white/8 hover:border-white/20 text-slate-400 hover:text-white'
+                        ? 'bg-[#121A2A] border border-[#FF6B4A] shadow-[0_0_25px_rgba(255,107,74,0.35)]' 
+                        : 'bg-[#0E1526]/85 hover:bg-[#121A2A] border border-white/10 hover:border-white/20'
                     }`}
                   >
-                    <div className="flex items-center gap-3.5">
-                      <span className={`font-mono text-xs font-bold transition-colors ${
-                        isActive ? 'text-[#FF6B4A]' : 'text-slate-500 group-hover:text-slate-300'
+                    <div className="flex items-center gap-3.5 sm:gap-4">
+                      <span className={`font-mono text-xs sm:text-sm font-bold transition-colors ${
+                        isActive ? 'text-slate-300' : 'text-slate-500 group-hover:text-slate-400'
                       }`}>
                         {svc.num}
                       </span>
-                      <span className="text-sm sm:text-base font-bold whitespace-nowrap lg:whitespace-normal">
+                      <span className={`text-sm sm:text-base font-bold transition-colors ${
+                        isActive ? 'text-[#FF6B4A]' : 'text-white'
+                      }`}>
                         {svc.navTitle}
                       </span>
                     </div>
-
-                    <ArrowRight className={`hidden lg:block w-4 h-4 transition-all duration-300 ${
-                      isActive ? 'translate-x-1 text-[#FF6B4A] opacity-100' : 'opacity-0 -translate-x-2 group-hover:opacity-60'
-                    }`} />
                   </button>
                 );
               })}
             </div>
 
             {/* Bottom "View All Services" Action Button (Alpha Agency Style) */}
-            <div className="mt-4 pt-2">
+            <div className="pt-1">
               <Link
                 to="/services"
-                className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FFB627] to-[#8FC658] hover:from-[#FFA62E] hover:to-[#9ED668] text-neutral-900 font-extrabold text-sm tracking-wide transition-all duration-300 shadow-lg shadow-black/40 flex items-center justify-center gap-2 group cursor-pointer"
+                className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FFB627] to-[#8FC658] hover:from-[#FFA62E] hover:to-[#9ED668] text-neutral-900 font-extrabold text-sm tracking-wide transition-all duration-300 shadow-lg shadow-black/40 flex items-center justify-center gap-2 group cursor-pointer text-center"
               >
                 <span>View All Services</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
