@@ -1,6 +1,6 @@
 import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { RoundedBox, Float, Environment, ContactShadows, OrbitControls } from '@react-three/drei';
+import { RoundedBox, Float, ContactShadows, OrbitControls } from '@react-three/drei';
 import * as THREE from 'three';
 
 /* ═══════════════════════════════════════════════════════════════
@@ -1022,7 +1022,10 @@ function Scene({ mouseRef }) {
   return (
     <>
       {/* ── CINEMATIC LIGHTING (WARM ORANGE ACCENTS) ── */}
-      <ambientLight intensity={0.4} />
+      <ambientLight intensity={0.55} />
+
+      {/* Atmospheric hemisphere light for natural specular sheen without external network downloads */}
+      <hemisphereLight skyColor="#93C5FD" groundColor="#0F172A" intensity={0.65} />
 
       {/* Key Studio Light */}
       <directionalLight
@@ -1054,8 +1057,8 @@ function Scene({ mouseRef }) {
       {/* Monitor Display Projection Light */}
       <pointLight position={[0.2, 0.45, 1.6]} intensity={3.0} color="#2563EB" distance={5} decay={2} />
 
-      {/* Metallic reflections */}
-      <Environment preset="city" />
+      {/* Metallic specular booster */}
+      <pointLight position={[0, 4, 3]} intensity={1.2} color="#FFFFFF" distance={10} decay={2} />
 
       {/* Auto-fitting Workstation Rig */}
       <WorkstationRig mouseRef={mouseRef} textures={textures} />
@@ -1081,12 +1084,8 @@ function Scene({ mouseRef }) {
 
 export default function HeroScene() {
   const mouseRef = useRef({ x: 0, y: 0 });
-  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
-
     const handleMouseMove = (e) => {
       mouseRef.current.x = (e.clientX / window.innerWidth) * 2 - 1;
       mouseRef.current.y = -(e.clientY / window.innerHeight) * 2 + 1;
@@ -1095,10 +1094,6 @@ export default function HeroScene() {
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  if (reducedMotion) {
-    return null;
-  }
 
   return (
     <Canvas

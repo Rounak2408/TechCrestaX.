@@ -4,6 +4,33 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 const HeroScene = lazy(() => import('../three/HeroScene'));
 
+class HeroSceneErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(err) {
+    console.warn('Hero 3D Scene could not be rendered:', err);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="flex flex-col items-center justify-center w-full h-full p-8 text-center">
+          <div className="w-20 h-20 rounded-3xl bg-gradient-to-br from-[#FF6B4A]/20 to-[#FFB627]/20 border border-[#FF6B4A]/30 flex items-center justify-center mb-4 shadow-[0_0_30px_rgba(255,107,74,0.25)]">
+            <span className="text-3xl">💻</span>
+          </div>
+          <span className="text-white font-mono text-sm tracking-wider uppercase font-semibold">TechCrestaX Studio</span>
+          <span className="text-[#94A3B8] text-xs font-mono mt-1">High-Performance Web Platforms</span>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 /* ─── Animated counter ───────────────────────────────────────── */
 function Counter({ to, suffix = '' }) {
   const [val, setVal] = useState(0);
@@ -175,19 +202,21 @@ export default function HeroSection() {
               style={{ background: 'radial-gradient(ellipse at 55% 45%, #1a44cc 0%, rgba(255,107,74,0.15) 55%, transparent 80%)' }}
             />
 
-            <Suspense
-              fallback={
-                <div className="flex flex-col items-center justify-center w-full h-full gap-4">
-                  <div
-                    className="w-14 h-14 rounded-full border-2 border-[#FF6B4A]/30 border-t-[#FF6B4A]"
-                    style={{ animation: 'spin 1s linear infinite' }}
-                  />
-                  <span className="text-white/30 text-xs font-mono tracking-widest">LOADING 3D…</span>
-                </div>
-              }
-            >
-              <HeroScene />
-            </Suspense>
+            <HeroSceneErrorBoundary>
+              <Suspense
+                fallback={
+                  <div className="flex flex-col items-center justify-center w-full h-full gap-4">
+                    <div
+                      className="w-14 h-14 rounded-full border-2 border-[#FF6B4A]/30 border-t-[#FF6B4A]"
+                      style={{ animation: 'spin 1s linear infinite' }}
+                    />
+                    <span className="text-white/30 text-xs font-mono tracking-widest">LOADING 3D…</span>
+                  </div>
+                }
+              >
+                <HeroScene />
+              </Suspense>
+            </HeroSceneErrorBoundary>
 
             {/* Subtle Interactive 3D Indicator */}
             <div className="absolute bottom-2 right-2 sm:right-6 z-20 pointer-events-none flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#080E1A]/70 backdrop-blur-md border border-white/10 text-white/60 text-[11px] font-mono tracking-wide shadow-lg">
