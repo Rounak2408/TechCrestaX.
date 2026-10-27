@@ -43,10 +43,11 @@ export default function Footer() {
 
   const navLinks = [
     { title: 'Home', path: '/' },
-    { title: 'About Us', path: '/about' },
     { title: 'Services', path: '/services' },
     { title: 'Work', path: '/work' },
+    { title: 'About Us', path: '/about' },
     { title: 'Pricing & Maintenance', path: '/pricing' },
+    { title: 'Blog & Insights', path: '/blog' },
     { title: 'FAQ', path: '/faq' },
     { title: 'Contact', path: '/contact' },
   ];

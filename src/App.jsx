@@ -14,6 +14,8 @@ const AboutPage = lazy(() => import('./pages/AboutPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
+const BlogPage = lazy(() => import('./pages/InsightsPage'));
+const BlogPostDetailPage = lazy(() => import('./pages/InsightDetailPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
@@ -41,9 +43,13 @@ export default function App() {
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/portfolio/:slug" element={<CaseStudyDetailPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostDetailPage />} />
+          <Route path="/insights" element={<BlogPage />} />
+          <Route path="/insights/:slug" element={<BlogPostDetailPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/faqs" element={<FAQPage />} />
-          <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/privacy-policy" element={<PrivacyPage />} />

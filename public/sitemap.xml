@@ -140,6 +140,23 @@
 
 
 
+  <!-- Engineering Blog & Insights Hub -->
+  <url>
+    <loc>https://www.techcrestax.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.techcrestax.com/blog/architecting-sub-second-web-applications</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.techcrestax.com/blog/bridging-figma-to-production</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Legal & Terms -->
   <url>
     <loc>https://www.techcrestax.com/privacy</loc>

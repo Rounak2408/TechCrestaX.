@@ -11,6 +11,7 @@ import PricingPreview from '../components/home/PricingPreview';
 import ReviewsSection from '../components/home/ReviewsSection';
 import TeamPreview from '../components/home/TeamPreview';
 import FAQPreview from '../components/home/FAQPreview';
+import BlogPreview from '../components/home/BlogPreview';
 import FinalCTA from '../components/home/FinalCTA';
 import { organizationSchema, websiteSchema } from '../data/seoSchemas';
 
@@ -90,12 +91,17 @@ export default function HomePage() {
         <TeamPreview />
       </section>
 
-      {/* 8. FAQ: FAQ PREVIEW */}
+      {/* 8. BLOG / INSIGHTS PREVIEW */}
+      <section id="blog" className="scroll-mt-20">
+        <BlogPreview />
+      </section>
+
+      {/* 9. FAQ: FAQ PREVIEW */}
       <section id="faq" className="scroll-mt-20">
         <FAQPreview />
       </section>
 
-      {/* 8. CONTACT: FINAL CTA */}
+      {/* 10. CONTACT: FINAL CTA */}
       <section id="contact-cta" className="scroll-mt-20">
         <FinalCTA />
       </section>
