@@ -60,6 +60,15 @@ export default function Footer() {
     { title: 'Digital Growth & Online Presence', path: '/services#digital-growth-online-presence' },
   ];
 
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      window.location.reload();
+    } else {
+      window.location.href = '/';
+    }
+  };
+
   return (
     <footer 
       className="w-full bg-white dark:bg-[#070A0F] border-t border-[#F0E7E2] dark:border-white/10 text-[#555555] dark:text-[#94A3B8] relative select-none transition-colors"
@@ -71,9 +80,10 @@ export default function Footer() {
           
           {/* Column 1: Brand & Positioning (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
-            <Link 
-              to="/" 
-              className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF572F] rounded-xl"
+            <a 
+              href="/" 
+              onClick={handleLogoClick}
+              className="inline-flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF572F] rounded-xl cursor-pointer"
               aria-label="TechCrestaX Homepage"
             >
               <img
@@ -89,7 +99,7 @@ export default function Footer() {
                   DIGITAL ENGINEERING STUDIO
                 </span>
               </div>
-            </Link>
+            </a>
 
             <p className="text-xs sm:text-sm text-[#666666] dark:text-[#94A3B8] leading-relaxed max-w-sm">
               We build digital experiences that move businesses forward. Strategic design, modern development, and dependable post-launch support.

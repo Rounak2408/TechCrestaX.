@@ -59,6 +59,15 @@ export default function Navbar() {
     return location.pathname.startsWith(path);
   };
 
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      window.location.reload();
+    } else {
+      window.location.href = '/';
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -71,9 +80,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Logo & Company Name */}
-          <Link
-            to="/"
-            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF572F] rounded-xl p-1 -m-1"
+          <a
+            href="/"
+            onClick={handleLogoClick}
+            className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF572F] rounded-xl p-1 -m-1 cursor-pointer"
             aria-label="TechCrestaX Homepage"
           >
             <img
@@ -89,7 +99,7 @@ export default function Navbar() {
                 Digital Engineering
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Clean Typography Navigation (No Box / Pill) */}
           <nav 
