@@ -888,3 +888,42 @@ html.dark :focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Spin keyframe for 3D canvas loader ── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ── Three.js / R3F Canvas helpers ── */
+canvas.r3f-canvas {
+  display: block;
+  outline: none;
+}
+
+/* Gradient text utility */
+.text-gradient-brand {
+  background: linear-gradient(135deg, #FF6B4A 0%, #FFB627 50%, #FF6B4A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ghost stroke text utility */
+.text-stroke-brand {
+  -webkit-text-stroke: 1.5px rgba(255, 107, 74, 0.5);
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Section entrance animation */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+

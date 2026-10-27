@@ -44,14 +44,14 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Work', path: '/work' },
-    { name: 'About', path: '/about' },
     { name: 'Pricing', path: '/pricing' },
-    { name: 'Blog', path: '/blog' },
     { name: 'FAQ', path: '/faq' },
     { name: 'Contact', path: '/contact' },
   ];
+
 
   const isLinkActive = (path) => {
     if (path === '/') {
@@ -73,8 +73,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#F8F9FA]/95 dark:bg-[#070A0F]/95 backdrop-blur-md border-b border-[#EBECEF] dark:border-white/10 py-3 shadow-xs'
-          : 'bg-[#F8F9FA]/70 dark:bg-[#070A0F]/70 backdrop-blur-xs py-4 border-b border-transparent'
+          ? 'bg-[#06080F]/95 backdrop-blur-md border-b border-white/8 py-3 shadow-lg shadow-black/30'
+          : 'bg-[#06080F]/60 backdrop-blur-sm py-4 border-b border-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,10 +93,10 @@ export default function Navbar() {
               className="w-9 h-9 rounded-xl object-contain shadow-xs border border-[#EBECEF] dark:border-white/10 group-hover:scale-105 transition-transform"
             />
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-[#0D1B2A] dark:text-white flex items-center">
+              <span className="font-display font-extrabold text-lg sm:text-xl tracking-tight text-white flex items-center">
                 TechCresta<span className="bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] bg-clip-text text-transparent">X</span>
               </span>
-              <span className="text-[10px] uppercase font-mono tracking-widest text-[#4C5258] dark:text-[#94A3B8] -mt-1 hidden sm:block">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-white/40 -mt-1 hidden sm:block">
                 Digital Engineering
               </span>
             </div>
@@ -115,8 +115,8 @@ export default function Navbar() {
                   to={link.path}
                   className={`relative px-3 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold transition-colors duration-200 select-none ${
                     active
-                      ? 'text-[#FF6B4A] dark:text-[#FF7C42] font-bold'
-                      : 'text-[#4C5258] dark:text-[#94A3B8] hover:text-[#0D1B2A] dark:hover:text-white'
+                      ? 'text-[#FF6B4A] font-bold'
+                      : 'text-white/60 hover:text-white'
                   }`}
                   aria-current={active ? 'page' : undefined}
                 >
@@ -176,35 +176,18 @@ export default function Navbar() {
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-x-0 top-[60px] bottom-0 z-40 bg-[#F8F9FA]/98 dark:bg-[#070A0F]/98 backdrop-blur-xl lg:hidden overflow-y-auto border-t border-[#EBECEF] dark:border-white/10 px-6 py-6 flex flex-col justify-between"
+          className="fixed inset-x-0 top-[60px] bottom-0 z-50 bg-[#FFFFFF] dark:bg-[#070A0F] lg:hidden overflow-y-auto border-t border-[#EBECEF] dark:border-white/10 px-6 py-6 flex flex-col justify-between shadow-2xl"
           style={{ height: 'calc(100dvh - 60px)' }}
         >
           <div className="space-y-1.5">
-            {/* Drawer Header with Integrated Theme Switcher */}
+            {/* Drawer Header (Clean, without duplicate theme switcher) */}
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-[#EBECEF] dark:border-white/10">
               <span className="text-xs font-mono uppercase text-[#4C5258] dark:text-[#94A3B8] tracking-wider font-semibold">
                 Menu Navigation
               </span>
-              
-              {/* Theme Switch Pill inside Hamburger Drawer */}
-              <button
-                type="button"
-                onClick={toggleTheme}
-                aria-label="Toggle theme mode"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-[#0D1420] border border-[#EBECEF] dark:border-white/10 text-xs font-semibold text-[#0D1B2A] dark:text-white shadow-2xs hover:border-[#FF6B4A]/50 transition-all cursor-pointer"
-              >
-                {theme === 'dark' ? (
-                  <>
-                    <Sun className="w-3.5 h-3.5 text-amber-400" />
-                    <span className="text-[11px] font-mono">Light Mode</span>
-                  </>
-                ) : (
-                  <>
-                    <Moon className="w-3.5 h-3.5 text-[#4C5258]" />
-                    <span className="text-[11px] font-mono">Dark Mode</span>
-                  </>
-                )}
-              </button>
+              <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF6B4A] font-bold">
+                Studio
+              </span>
             </div>
 
             {navLinks.map((link) => {
@@ -231,7 +214,7 @@ export default function Navbar() {
 
           <div className="mt-6 pt-5 border-t border-[#EBECEF] dark:border-white/10 space-y-3">
             {/* Dedicated Appearance Switch Card */}
-            <div className="flex items-center justify-between p-3 rounded-2xl bg-white dark:bg-[#0D1420] border border-[#EBECEF] dark:border-white/10 shadow-2xs">
+            <div className="flex items-center justify-between p-3.5 rounded-2xl bg-[#F8F9FA] dark:bg-[#0D1420] border border-[#EBECEF] dark:border-white/10 shadow-xs">
               <div className="flex items-center gap-2.5">
                 <div className="w-8 h-8 rounded-xl bg-[#FFF4F0] dark:bg-[#152033] flex items-center justify-center text-[#FF6B4A]">
                   {theme === 'dark' ? <Moon className="w-4 h-4 text-indigo-400" /> : <Sun className="w-4 h-4 text-amber-500" />}
@@ -247,15 +230,16 @@ export default function Navbar() {
               </div>
 
               {/* Segmented Light/Dark Switch Buttons */}
-              <div className="flex items-center p-0.5 rounded-xl bg-[#F8F9FA] dark:bg-[#070A0F] border border-[#EBECEF] dark:border-white/10">
+              <div className="flex items-center p-1 rounded-xl bg-white dark:bg-[#070A0F] border border-[#EBECEF] dark:border-white/10 shadow-2xs">
                 <button
                   type="button"
                   onClick={() => theme === 'dark' && toggleTheme()}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                     theme === 'light'
-                      ? 'bg-white text-[#FF6B4A] shadow-xs'
-                      : 'text-[#888888] hover:text-white'
+                      ? 'bg-[#FFF4F0] text-[#FF6B4A] shadow-xs font-extrabold border border-[#FF6B4A]/20'
+                      : 'text-[#64748B] hover:text-[#0D1B2A] dark:hover:text-white'
                   }`}
+                  aria-pressed={theme === 'light'}
                 >
                   <Sun className="w-3 h-3 text-amber-500" />
                   <span>Light</span>
@@ -263,13 +247,14 @@ export default function Navbar() {
                 <button
                   type="button"
                   onClick={() => theme === 'light' && toggleTheme()}
-                  className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all flex items-center gap-1 cursor-pointer ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
                     theme === 'dark'
-                      ? 'bg-[#0D1420] text-white shadow-xs'
-                      : 'text-[#888888] hover:text-[#0D1B2A]'
+                      ? 'bg-[#152033] text-white shadow-xs font-extrabold border border-white/10'
+                      : 'text-[#64748B] hover:text-[#0D1B2A] dark:hover:text-white'
                   }`}
+                  aria-pressed={theme === 'dark'}
                 >
-                  <Moon className="w-3 h-3 text-indigo-400" />
+                  <Moon className="w-3.5 h-3.5 text-amber-300" />
                   <span>Dark</span>
                 </button>
               </div>

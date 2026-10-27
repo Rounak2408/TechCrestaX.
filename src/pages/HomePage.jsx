@@ -1,7 +1,6 @@
 import React from 'react';
 import SEO from '../components/seo/SEO';
 import HeroSection from '../components/home/HeroSection';
-import BusinessHighlights from '../components/home/BusinessHighlights';
 import ClientTrust from '../components/home/ClientTrust';
 import ServicesOverview from '../components/home/ServicesOverview';
 import SelectedWork from '../components/home/SelectedWork';
@@ -9,9 +8,9 @@ import WhyChooseUs from '../components/home/WhyChooseUs';
 import ProcessSection from '../components/home/ProcessSection';
 import PricingPreview from '../components/home/PricingPreview';
 import ReviewsSection from '../components/home/ReviewsSection';
-import TeamPreview from '../components/home/TeamPreview';
+
 import FAQPreview from '../components/home/FAQPreview';
-import BlogPreview from '../components/home/BlogPreview';
+
 import FinalCTA from '../components/home/FinalCTA';
 import { organizationSchema, websiteSchema } from '../data/seoSchemas';
 
@@ -45,11 +44,6 @@ export default function HomePage() {
       {/* 1. HOME: HERO */}
       <section id="hero" className="scroll-mt-20">
         <HeroSection />
-      </section>
-
-      {/* 1. HOME: BUSINESS HIGHLIGHTS */}
-      <section id="highlights">
-        <BusinessHighlights />
       </section>
 
       {/* 1. HOME: CLIENT TRUST */}
@@ -86,15 +80,7 @@ export default function HomePage() {
         <ReviewsSection />
       </section>
 
-      {/* 7. TEAM PREVIEW */}
-      <section id="team">
-        <TeamPreview />
-      </section>
 
-      {/* 8. BLOG / INSIGHTS PREVIEW */}
-      <section id="blog" className="scroll-mt-20">
-        <BlogPreview />
-      </section>
 
       {/* 9. FAQ: FAQ PREVIEW */}
       <section id="faq" className="scroll-mt-20">

@@ -7,8 +7,6 @@ import {
   MessageSquare, 
   MapPin, 
   ChevronRight,
-  ShieldCheck,
-  CheckCircle2,
   Sparkles
 } from 'lucide-react';
 import { companyData } from '../../data/companyData';
@@ -77,46 +75,6 @@ export default function Footer() {
       role="contentinfo"
       aria-label="Site Footer"
     >
-      {/* Top Pre-Footer Banner (Alpha Agency Signature Newsletter / Consultation Call-out) */}
-      <div className="border-b border-white/10 bg-[#070F1A]/80 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
-            <div className="space-y-1.5 max-w-xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF6B4A]/15 border border-[#FF6B4A]/30 text-[#FF7C42] text-xs font-semibold">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>360° DIGITAL SOLUTION FOR BUSINESSES</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Ready to Build a Website That Drives Real Growth?
-              </h2>
-              <p className="text-sm text-slate-400">
-                Custom engineering, transparent scope, and 1 year of free dedicated maintenance on every project.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
-              <Link
-                to="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 pl-6 pr-2 py-2.5 rounded-full bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] hover:from-[#FF7C42] hover:to-[#FFA700] text-white font-bold text-sm transition-all duration-300 shadow-lg shadow-[#FF6B4A]/25 hover:-translate-y-0.5 group"
-              >
-                <span>Get In Touch</span>
-                <span className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-[#FF6B4A] transition-all">
-                  <ArrowUpRight className="w-4 h-4" />
-                </span>
-              </Link>
-              <a
-                href={companyData.contact.whatsappLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white border border-white/15 text-xs font-bold transition-colors"
-              >
-                <MessageSquare className="w-4 h-4 text-[#8FC658]" />
-                <span>Chat on WhatsApp</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
@@ -147,18 +105,6 @@ export default function Footer() {
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               We engineer high-performance web solutions that turn visitors into revenue. Strategy, design, development, and dependable post-launch support.
             </p>
-
-            {/* Preserved Key Highlights */}
-            <div className="pt-1 flex flex-wrap gap-2 text-[11px] font-medium text-slate-300">
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#8FC658]" />
-                <span>30+ Projects Delivered</span>
-              </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/5 border border-white/10">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B4A]" />
-                <span>100% Code Ownership</span>
-              </span>
-            </div>
 
             {/* Social Channels */}
             <div className="pt-2 flex items-center gap-3">
