@@ -12,8 +12,6 @@ const PortfolioPage = lazy(() => import('./pages/PortfolioPage'));
 const CaseStudyDetailPage = lazy(() => import('./pages/CaseStudyDetailPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
-const InsightsPage = lazy(() => import('./pages/InsightsPage'));
-const InsightDetailPage = lazy(() => import('./pages/InsightDetailPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 const PricingPage = lazy(() => import('./pages/PricingPage'));
 const PrivacyPage = lazy(() => import('./pages/PrivacyPage'));
@@ -45,8 +43,6 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="/faqs" element={<FAQPage />} />
-          <Route path="/insights" element={<InsightsPage />} />
-          <Route path="/insights/:slug" element={<InsightDetailPage />} />
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />

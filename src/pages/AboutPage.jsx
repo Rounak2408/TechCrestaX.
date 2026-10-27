@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import SEO from '../components/seo/SEO';
 import { organizationSchema, createBreadcrumbSchema } from '../data/seoSchemas';
+import TeamSection from '../components/team/TeamSection';
 
 export default function AboutPage() {
   useEffect(() => {
@@ -44,37 +45,10 @@ export default function AboutPage() {
   const keyStats = [
     { value: "2026", label: "Founded" },
     { value: "30+", label: "Projects" },
-    { value: "15+", label: "Happy Clients" },
-    { value: "5", label: "Team Members" },
+    { value: "25+", label: "Happy Clients" },
+    { value: "8", label: "Team Members" },
   ];
 
-  const teamMembers = [
-    {
-      name: "Rishu Thakur",
-      role: "FOUNDER & CEO",
-      image: "/team1.jpg",
-      bio: "Passionate about creating premium digital products that combine clean design, scalable technology and meaningful user experiences.",
-      isLeader: true,
-    },
-    {
-      name: "Bharti Murdhariya",
-      role: "BUSINESS DEVELOPMENT MANAGER",
-      image: "/team4.jpg",
-      bio: "Builds strong client relationships, identifies new business opportunities, and drives strategic partnerships for growth.",
-    },
-    {
-      name: "Khushi Tiwari",
-      role: "TECHNICAL LEAD",
-      image: "/team3.jpg",
-      bio: "Develops responsive, high-performance frontend applications with clean code, modern UX principles, and smooth performance across all devices.",
-    },
-    {
-      name: "Satyajeet Kumar",
-      role: "SOCIAL MEDIA MANAGER",
-      image: "/team5.jpg",
-      bio: "Drives digital growth through SEO, content strategy, social media marketing, and performance-driven campaigns that help brands reach the right audience.",
-    },
-  ];
 
   const journeyMilestones = [
     {
@@ -301,7 +275,7 @@ export default function AboutPage() {
 
               <div className="p-5 rounded-2xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 shadow-2xs space-y-1.5">
                 <div className="text-2xl font-black font-display text-[#151515] dark:text-white">
-                  20+
+                  30+
                 </div>
                 <p className="text-xs sm:text-sm text-[#555555] dark:text-[#94A3B8] leading-relaxed">
                   Successful projects delivered across multiple industries.
@@ -355,80 +329,9 @@ export default function AboutPage() {
         </div>
 
         {/* ====================================================
-            3. OUR TEAM ("Meet The Minds Behind TechCrestaX")
+            3. OUR TEAM ("Meet Our Team")
            ==================================================== */}
-        <div className="space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#FF572F] font-bold">
-              OUR TEAM
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-[#151515] dark:text-white tracking-tight">
-              Meet The Minds <span className="text-[#FF572F]">Behind TechCrestaX</span>
-            </h2>
-            <p className="text-sm sm:text-base text-[#555555] dark:text-[#94A3B8] leading-relaxed">
-              Designers, developers and strategists working together to build digital experiences that businesses love.
-            </p>
-          </div>
-
-          {/* Founder Spotlight Card (Centered) */}
-          <div className="max-w-md mx-auto">
-            {teamMembers.filter(m => m.isLeader).map((founder) => (
-              <div 
-                key={founder.name}
-                className="p-6 rounded-3xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 shadow-lg text-center space-y-4 hover:border-[#FF572F]/50 transition-all"
-              >
-                <div className="w-32 h-32 mx-auto rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border-2 border-[#FF572F]/40 shadow-md">
-                  <img
-                    src={founder.image}
-                    alt={founder.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <span className="inline-block px-3 py-1 rounded-full bg-[#FFF0E9] dark:bg-[#FF572F]/15 border border-[#FCD5C8] dark:border-[#FF572F]/30 text-[10px] font-mono font-bold text-[#FF572F] tracking-wider">
-                    {founder.role}
-                  </span>
-                  <h3 className="text-xl font-bold font-display text-[#151515] dark:text-white">
-                    {founder.name}
-                  </h3>
-                </div>
-                <p className="text-xs sm:text-sm text-[#555555] dark:text-[#94A3B8] leading-relaxed">
-                  {founder.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Team Members Grid (3 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {teamMembers.filter(m => !m.isLeader).map((member) => (
-              <div 
-                key={member.name}
-                className="p-6 rounded-3xl bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 shadow-xs flex flex-col justify-between space-y-4 text-center hover:border-[#FF572F]/40 hover:shadow-md transition-all"
-              >
-                <div className="w-24 h-24 mx-auto rounded-2xl overflow-hidden bg-slate-100 dark:bg-slate-800 border border-[#F0E7E2] dark:border-white/10 shadow-sm">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="space-y-1">
-                  <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#FFF9F6] dark:bg-[#1A2230] border border-[#F0E7E2] dark:border-white/10 text-[10px] font-mono font-bold text-[#FF572F] tracking-wider">
-                    {member.role}
-                  </span>
-                  <h3 className="text-lg font-bold font-display text-[#151515] dark:text-white">
-                    {member.name}
-                  </h3>
-                </div>
-                <p className="text-xs text-[#555555] dark:text-[#94A3B8] leading-relaxed">
-                  {member.bio}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <TeamSection />
 
         {/* ====================================================
             4. TEAM QUOTE BANNER

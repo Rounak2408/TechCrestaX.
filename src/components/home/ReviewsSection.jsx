@@ -4,7 +4,9 @@ import {
   ExternalLink, 
   CheckCircle2, 
   Quote,
-  Globe
+  Globe,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { companyData } from '../../data/companyData';
 
@@ -125,8 +127,10 @@ export default function ReviewsSection() {
   ];
 
   const totalReviews = verifiedFeedback.length;
-  // Automatically rotate every 10 seconds
-  const ROTATION_INTERVAL_MS = 10000;
+  // Automatically rotate every 5 seconds
+  const ROTATION_INTERVAL_MS = 5000;
+  const isMobile = windowWidth < 640;
+  const isTablet = windowWidth >= 640 && windowWidth < 1024;
 
   // Window resize handler for responsive 3D perspective calculation
   useEffect(() => {
@@ -135,7 +139,7 @@ export default function ReviewsSection() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto-advance reviews every 10 seconds automatically (pauses on hover)
+  // Auto-advance reviews every 5 seconds automatically (pauses on hover)
   useEffect(() => {
     if (isPaused) return;
 
@@ -175,14 +179,56 @@ export default function ReviewsSection() {
     }
   };
 
-  // Calculate 3D circular position for each card
+  // Calculate position for each card
   const getCardStyle = (index) => {
     const diff = (index - currentIndex + totalReviews) % totalReviews;
     const relative = diff > totalReviews / 2 ? diff - totalReviews : diff;
 
-    const isMobile = windowWidth < 640;
-    const isTablet = windowWidth >= 640 && windowWidth < 1024;
+    // Mobile Layout: Clean 2D slide without 3D texture blur or distracting side peeks
+    if (isMobile) {
+      if (relative === 0) {
+        return {
+          transform: 'translateX(-50%)',
+          opacity: 1,
+          zIndex: 30,
+          pointerEvents: 'auto',
+          filter: 'none',
+          visibility: 'visible',
+          transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease'
+        };
+      }
+      if (relative === 1) {
+        return {
+          transform: 'translateX(60%)',
+          opacity: 0,
+          zIndex: 10,
+          pointerEvents: 'none',
+          filter: 'none',
+          visibility: 'hidden',
+          transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease'
+        };
+      }
+      if (relative === -1) {
+        return {
+          transform: 'translateX(-160%)',
+          opacity: 0,
+          zIndex: 10,
+          pointerEvents: 'none',
+          filter: 'none',
+          visibility: 'hidden',
+          transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease'
+        };
+      }
+      return {
+        transform: 'translateX(-50%)',
+        opacity: 0,
+        zIndex: 0,
+        pointerEvents: 'none',
+        visibility: 'hidden'
+      };
+    }
 
+    // Tablet & Desktop Layout: 3D Orbit Carousel
     // Active Card (Front and center stage)
     if (relative === 0) {
       return {
@@ -190,30 +236,20 @@ export default function ReviewsSection() {
         opacity: 1,
         zIndex: 30,
         pointerEvents: 'auto',
-        filter: 'blur(0px)',
+        filter: 'none',
         visibility: 'visible'
       };
     }
 
     // Right Card (+1)
     if (relative === 1) {
-      if (isMobile) {
-        return {
-          transform: 'translateX(calc(-50% + 88%)) scale(0.85)',
-          opacity: 0.35,
-          zIndex: 20,
-          cursor: 'pointer',
-          filter: 'blur(0.5px)',
-          visibility: 'visible'
-        };
-      }
       if (isTablet) {
         return {
           transform: 'translateX(calc(-50% + 280px)) translateZ(-70px) rotateY(-14deg) scale(0.88)',
           opacity: 0.65,
           zIndex: 20,
           cursor: 'pointer',
-          filter: 'blur(0.5px)',
+          filter: 'none',
           visibility: 'visible'
         };
       }
@@ -222,30 +258,20 @@ export default function ReviewsSection() {
         opacity: 0.7,
         zIndex: 20,
         cursor: 'pointer',
-        filter: 'blur(0px)',
+        filter: 'none',
         visibility: 'visible'
       };
     }
 
     // Left Card (-1)
     if (relative === -1) {
-      if (isMobile) {
-        return {
-          transform: 'translateX(calc(-50% - 88%)) scale(0.85)',
-          opacity: 0.35,
-          zIndex: 20,
-          cursor: 'pointer',
-          filter: 'blur(0.5px)',
-          visibility: 'visible'
-        };
-      }
       if (isTablet) {
         return {
           transform: 'translateX(calc(-50% - 280px)) translateZ(-70px) rotateY(14deg) scale(0.88)',
           opacity: 0.65,
           zIndex: 20,
           cursor: 'pointer',
-          filter: 'blur(0.5px)',
+          filter: 'none',
           visibility: 'visible'
         };
       }
@@ -254,22 +280,19 @@ export default function ReviewsSection() {
         opacity: 0.7,
         zIndex: 20,
         cursor: 'pointer',
-        filter: 'blur(0px)',
+        filter: 'none',
         visibility: 'visible'
       };
     }
 
     // Behind Right (+2)
     if (relative === 2) {
-      if (isMobile) {
-        return { opacity: 0, pointerEvents: 'none', visibility: 'hidden' };
-      }
       if (isTablet) {
         return {
           transform: 'translateX(calc(-50% + 480px)) translateZ(-160px) rotateY(-22deg) scale(0.72)',
           opacity: 0.2,
           zIndex: 10,
-          filter: 'blur(1px)',
+          filter: 'none',
           visibility: 'visible'
         };
       }
@@ -277,22 +300,19 @@ export default function ReviewsSection() {
         transform: 'translateX(calc(-50% + 680px)) translateZ(-200px) rotateY(-26deg) scale(0.74)',
         opacity: 0.25,
         zIndex: 10,
-        filter: 'blur(1px)',
+        filter: 'none',
         visibility: 'visible'
       };
     }
 
     // Behind Left (-2)
     if (relative === -2) {
-      if (isMobile) {
-        return { opacity: 0, pointerEvents: 'none', visibility: 'hidden' };
-      }
       if (isTablet) {
         return {
           transform: 'translateX(calc(-50% - 480px)) translateZ(-160px) rotateY(22deg) scale(0.72)',
           opacity: 0.2,
           zIndex: 10,
-          filter: 'blur(1px)',
+          filter: 'none',
           visibility: 'visible'
         };
       }
@@ -300,7 +320,7 @@ export default function ReviewsSection() {
         transform: 'translateX(calc(-50% - 680px)) translateZ(-200px) rotateY(26deg) scale(0.74)',
         opacity: 0.25,
         zIndex: 10,
-        filter: 'blur(1px)',
+        filter: 'none',
         visibility: 'visible'
       };
     }
@@ -349,14 +369,14 @@ export default function ReviewsSection() {
         </div>
 
         {/* ====================================================
-            3D PERSPECTIVE REVOLVING ORBIT CAROUSEL (Auto 30s)
+            ORBIT CAROUSEL (Mobile Crisp 2D / Desktop 3D)
            ==================================================== */}
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-8">
           
-          {/* 3D Stage Viewport */}
+          {/* Stage Viewport */}
           <div 
-            className="relative w-full h-[390px] sm:h-[370px] md:h-[360px] max-w-6xl mx-auto overflow-visible"
-            style={{ perspective: '1400px', transformStyle: 'preserve-3d' }}
+            className="relative w-full h-[370px] sm:h-[370px] md:h-[360px] max-w-6xl mx-auto overflow-hidden sm:overflow-visible"
+            style={isMobile ? {} : { perspective: '1400px', transformStyle: 'preserve-3d' }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -370,14 +390,14 @@ export default function ReviewsSection() {
                   key={review.id}
                   onClick={() => !isActive && jumpToIndex(idx)}
                   style={cardStyle}
-                  className={`absolute top-0 left-1/2 w-[90%] sm:w-[460px] md:w-[490px] h-[370px] sm:h-[350px] md:h-[340px] rounded-3xl transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between p-6 sm:p-7 md:p-8 select-none ${
+                  className={`absolute top-0 left-1/2 w-[94%] max-w-[430px] sm:w-[460px] md:w-[490px] h-[355px] sm:h-[350px] md:h-[340px] rounded-3xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between p-5 sm:p-7 md:p-8 select-none ${
                     isActive
-                      ? 'bg-white dark:bg-[#121824] border-2 border-[#FF572F] shadow-2xl shadow-[#FF572F]/15 dark:shadow-[#FF572F]/25 cursor-default'
+                      ? 'bg-white dark:bg-[#121824] border-2 border-[#FF572F] shadow-xl shadow-[#FF572F]/15 dark:shadow-[#FF572F]/25 cursor-default'
                       : 'bg-white/80 dark:bg-[#121824]/75 border border-[#F0E7E2] dark:border-white/10 shadow-md hover:border-[#FF572F]/50 cursor-pointer'
                   }`}
                 >
                   {/* Top Row: Stars + Verified Badge */}
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     <div className="flex items-center justify-between">
                       
                       {/* 5 Golden Stars */}
@@ -394,25 +414,25 @@ export default function ReviewsSection() {
                       </div>
 
                       {/* Verified Live Client Badge */}
-                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[10px] sm:text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                      <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                         <span>Verified Client</span>
                       </span>
                     </div>
 
-                    {/* Review Quote Typography */}
-                    <div className="relative">
-                      <Quote className="absolute -top-2 -left-1 w-8 h-8 text-[#FF572F]/15 dark:text-[#FF572F]/20 pointer-events-none" />
-                      <blockquote className="text-xs sm:text-sm md:text-[14.5px] text-[#222222] dark:text-slate-100 leading-relaxed italic font-medium pt-1 line-clamp-5">
+                    {/* Review Quote Typography: Crisp, Non-blurred, High-contrast */}
+                    <div className="relative pt-1 sm:pt-2">
+                      <Quote className="absolute -top-1 -left-1 w-7 h-7 text-[#FF572F]/20 dark:text-[#FF572F]/25 pointer-events-none" />
+                      <blockquote className="text-sm sm:text-[15px] md:text-base text-gray-900 dark:text-gray-100 font-medium leading-relaxed pl-1">
                         "{review.quote}"
                       </blockquote>
                     </div>
                   </div>
 
                   {/* Bottom Row: Client Identity & Live Domain Link */}
-                  <div className="pt-4 mt-2 border-t border-[#F0E7E2] dark:border-white/10 flex items-center justify-between gap-3">
+                  <div className="pt-3 sm:pt-4 mt-2 border-t border-[#F0E7E2] dark:border-white/10 flex items-center justify-between gap-2 sm:gap-3">
                     
-                    <div className="flex items-center gap-3 min-w-0">
+                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                       {/* Avatar Monogram */}
                       <div className={`w-10 h-10 rounded-2xl bg-gradient-to-br ${review.accentColor} text-white font-bold font-display text-xs flex items-center justify-center shrink-0 shadow-xs`}>
                         {review.initials}
@@ -438,11 +458,11 @@ export default function ReviewsSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-[#FFF0E9] dark:bg-[#1A2230] border border-[#FCD5C8] dark:border-white/10 text-[10px] sm:text-xs font-mono font-bold text-[#FF572F] hover:bg-[#FF572F] hover:text-white transition-all shrink-0 cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#FFF0E9] dark:bg-[#1A2230] border border-[#FCD5C8] dark:border-white/10 text-xs font-mono font-bold text-[#FF572F] hover:bg-[#FF572F] hover:text-white transition-all shrink-0 cursor-pointer"
                       title={`Visit ${review.domain}`}
                     >
-                      <Globe className="w-3 h-3" />
-                      <span className="hidden md:inline">{review.domain}</span>
+                      <Globe className="w-3.5 h-3.5" />
+                      <span className="text-xs font-medium">{review.domain}</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
 
@@ -452,21 +472,41 @@ export default function ReviewsSection() {
             })}
           </div>
 
-          {/* Clean Centered Pagination Dots Only */}
-          <div className="flex items-center justify-center gap-2 pt-2">
-            {verifiedFeedback.map((item, dotIdx) => (
-              <button
-                key={item.id}
-                type="button"
-                onClick={() => jumpToIndex(dotIdx)}
-                aria-label={`Jump to review by ${item.author}`}
-                className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
-                  currentIndex === dotIdx
-                    ? 'w-8 bg-[#FF572F] shadow-xs'
-                    : 'w-2 bg-[#E5DCD6] dark:bg-slate-700 hover:bg-[#FF572F]/50'
-                }`}
-              />
-            ))}
+          {/* Navigation Controls: Prev/Next Buttons + Centered Pagination Dots */}
+          <div className="flex items-center justify-center gap-3 sm:gap-4 pt-1">
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous review"
+              className="p-2 sm:p-2.5 rounded-full bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 text-gray-700 dark:text-gray-300 hover:text-[#FF572F] dark:hover:text-[#FF572F] hover:border-[#FF572F] transition-all shadow-xs cursor-pointer active:scale-95"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              {verifiedFeedback.map((item, dotIdx) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => jumpToIndex(dotIdx)}
+                  aria-label={`Jump to review by ${item.author}`}
+                  className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
+                    currentIndex === dotIdx
+                      ? 'w-7 sm:w-8 bg-[#FF572F] shadow-xs'
+                      : 'w-2 bg-[#E5DCD6] dark:bg-slate-700 hover:bg-[#FF572F]/50'
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next review"
+              className="p-2 sm:p-2.5 rounded-full bg-white dark:bg-[#121824] border border-[#F0E7E2] dark:border-white/10 text-gray-700 dark:text-gray-300 hover:text-[#FF572F] dark:hover:text-[#FF572F] hover:border-[#FF572F] transition-all shadow-xs cursor-pointer active:scale-95"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
 
         </div>

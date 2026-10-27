@@ -93,7 +93,7 @@ export default function Navbar() {
 
           {/* Desktop Clean Typography Navigation (No Box / Pill) */}
           <nav 
-            className="hidden lg:flex items-center gap-1 xl:gap-2 px-2 py-1"
+            className="hidden lg:flex items-center gap-0.5 xl:gap-1 px-1 py-1"
             aria-label="Primary Navigation"
           >
             {navLinks.map((link) => {
@@ -102,7 +102,7 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`relative px-3.5 py-2 text-sm font-semibold transition-colors duration-200 select-none ${
+                  className={`relative px-2.5 xl:px-3.5 py-2 text-xs xl:text-sm font-semibold transition-colors duration-200 select-none ${
                     active
                       ? 'text-[#151515] dark:text-white font-bold'
                       : 'text-[#444444] dark:text-[#94A3B8] hover:text-[#151515] dark:hover:text-white'
@@ -113,7 +113,7 @@ export default function Navbar() {
                     <span>{link.name}</span>
                   </span>
                   {active && (
-                    <span className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#151515] dark:bg-white rounded-full" />
+                    <span className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-[#151515] dark:bg-white rounded-full" />
                   )}
                 </Link>
               );

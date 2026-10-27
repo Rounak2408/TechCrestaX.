@@ -329,13 +329,13 @@ export default function HeroSection() {
 
                     {/* Social proof avatar stack */}
                     <div className="relative z-10 pt-1 border-t border-white/10 text-left">
-                      <div className="text-[5.5px] text-slate-300 mb-0.5">Trusted by 50+ businesses</div>
+                      <div className="text-[5.5px] text-slate-300 mb-0.5">Trusted by 25+ Happy Clients</div>
                       <div className="flex items-center">
                         <img src="/team1.jpg" alt="Client 1" className="w-3 h-3 rounded-full border border-black object-cover -ml-0" />
                         <img src="/team3.jpg" alt="Client 2" className="w-3 h-3 rounded-full border border-black object-cover -ml-1" />
                         <img src="/team4.jpg" alt="Client 3" className="w-3 h-3 rounded-full border border-black object-cover -ml-1" />
                         <div className="w-3 h-3 rounded-full bg-slate-800 text-[5px] font-bold text-white flex items-center justify-center border border-black -ml-1">
-                          +40
+                          25+
                         </div>
                       </div>
                     </div>

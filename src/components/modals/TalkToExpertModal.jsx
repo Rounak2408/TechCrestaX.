@@ -494,20 +494,20 @@ export default function TalkToExpertModal() {
                     {/* 4 Bottom Metric Badges */}
                     <div className="pt-3 border-t border-[#F0E7E2] dark:border-slate-800/80 grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[10px] text-[#666666] dark:text-slate-400">
                       <div className="p-2 rounded-xl bg-[#FFF9F6] dark:bg-[#080B12] border border-[#F0E7E2] dark:border-slate-800">
-                        <span className="font-bold text-[#151515] dark:text-white block">25+ Projects</span>
+                        <span className="font-bold text-[#151515] dark:text-white block">30+ Projects</span>
                         <span>Delivered</span>
                       </div>
                       <div className="p-2 rounded-xl bg-[#FFF9F6] dark:bg-[#080B12] border border-[#F0E7E2] dark:border-slate-800">
-                        <span className="font-bold text-[#151515] dark:text-white block">98% Rating</span>
-                        <span>Satisfaction</span>
+                        <span className="font-bold text-[#151515] dark:text-white block">25+ Clients</span>
+                        <span>Happy Partners</span>
                       </div>
                       <div className="p-2 rounded-xl bg-[#FFF9F6] dark:bg-[#080B12] border border-[#F0E7E2] dark:border-slate-800">
                         <span className="font-bold text-[#151515] dark:text-white block">100% IP</span>
                         <span>Client Ownership</span>
                       </div>
                       <div className="p-2 rounded-xl bg-[#FFF9F6] dark:bg-[#080B12] border border-[#F0E7E2] dark:border-slate-800">
-                        <span className="font-bold text-[#151515] dark:text-white block">24/7 Desk</span>
-                        <span>Post-Launch</span>
+                        <span className="font-bold text-[#151515] dark:text-white block">8 Members</span>
+                        <span>Core Team</span>
                       </div>
                     </div>
                   </form>

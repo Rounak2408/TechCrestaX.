@@ -1,27 +1,27 @@
 import React from 'react';
-import { Package, ShieldCheck, Clock, Code2 } from 'lucide-react';
+import { Briefcase, CheckCircle2, Users2, ShieldCheck } from 'lucide-react';
 
 export default function BusinessHighlights() {
   const highlights = [
     {
-      icon: Package,
-      value: "₹7,000+",
-      label: "Starting Price",
+      icon: Briefcase,
+      value: "30+",
+      label: "Projects Delivered",
+    },
+    {
+      icon: CheckCircle2,
+      value: "25+",
+      label: "Happy Clients",
+    },
+    {
+      icon: Users2,
+      value: "8",
+      label: "Team Members",
     },
     {
       icon: ShieldCheck,
-      value: "1 Year",
-      label: "Free Maintenance",
-    },
-    {
-      icon: Clock,
-      value: "7 Days",
-      label: "Delivery",
-    },
-    {
-      icon: Code2,
-      value: "100%",
-      label: "Code Ownership",
+      value: "₹7,000+",
+      label: "Starting Base (1-Yr Free Maint.)",
     }
   ];
 

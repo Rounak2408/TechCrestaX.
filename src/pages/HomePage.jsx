@@ -9,6 +9,7 @@ import WhyChooseUs from '../components/home/WhyChooseUs';
 import ProcessSection from '../components/home/ProcessSection';
 import PricingPreview from '../components/home/PricingPreview';
 import ReviewsSection from '../components/home/ReviewsSection';
+import TeamPreview from '../components/home/TeamPreview';
 import FAQPreview from '../components/home/FAQPreview';
 import FinalCTA from '../components/home/FinalCTA';
 import { organizationSchema, websiteSchema } from '../data/seoSchemas';
@@ -84,7 +85,12 @@ export default function HomePage() {
         <ReviewsSection />
       </section>
 
-      {/* 7. FAQ: FAQ PREVIEW */}
+      {/* 7. TEAM PREVIEW */}
+      <section id="team">
+        <TeamPreview />
+      </section>
+
+      {/* 8. FAQ: FAQ PREVIEW */}
       <section id="faq" className="scroll-mt-20">
         <FAQPreview />
       </section>
