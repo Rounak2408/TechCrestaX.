@@ -927,3 +927,18 @@ canvas.r3f-canvas {
   transform: translateY(0);
 }
 
+/* Footer typographic watermark slow fade-in */
+@keyframes watermarkFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-watermark-fade {
+  animation: watermarkFadeIn 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+

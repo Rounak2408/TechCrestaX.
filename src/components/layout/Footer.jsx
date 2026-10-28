@@ -71,12 +71,108 @@ export default function Footer() {
 
   return (
     <footer 
-      className="w-full bg-[#0D1B2A] text-slate-300 relative select-none border-t border-white/10"
+      className="w-full bg-[#0D1B2A] text-slate-300 relative select-none border-t border-white/10 overflow-hidden"
       role="contentinfo"
       aria-label="Site Footer"
     >
+      {/* Background Typographic Watermark & Horizon Light Beam */}
+      <div 
+        className="absolute inset-x-0 bottom-0 h-[190px] sm:h-[240px] md:h-[300px] lg:h-[370px] pointer-events-none select-none z-0 overflow-hidden flex items-end justify-center"
+        aria-hidden="true"
+      >
+        {/* Ambient Cyan-Blue Glow on the right (behind STAX & WhatsApp CTA) */}
+        <div 
+          className="absolute -right-16 sm:-right-24 bottom-4 sm:bottom-10 w-[240px] sm:w-[380px] lg:w-[520px] h-[120px] sm:h-[180px] lg:h-[220px] rounded-full blur-[60px] sm:blur-[90px] opacity-25 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(14, 165, 233, 0.18) 50%, transparent 80%)'
+          }}
+        />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        {/* Subtle Ambient Cyan-Blue Glow on the left (behind TECH) */}
+        <div 
+          className="absolute -left-16 sm:-left-20 bottom-1 sm:bottom-2 w-[200px] sm:w-[300px] lg:w-[420px] h-[100px] sm:h-[150px] lg:h-[180px] rounded-full blur-[50px] sm:blur-[80px] opacity-15 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%)'
+          }}
+        />
+
+        {/* Sweeping Horizon Electric Cyan Beam */}
+        <svg 
+          className="absolute inset-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1440 370" 
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <defs>
+            <linearGradient id="footerBeamGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0" />
+              <stop offset="12%" stopColor="#38BDF8" stopOpacity="0.2" />
+              <stop offset="45%" stopColor="#00F0FF" stopOpacity="0.65" />
+              <stop offset="75%" stopColor="#38BDF8" stopOpacity="0.8" />
+              <stop offset="92%" stopColor="#60A5FA" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
+            </linearGradient>
+
+            <linearGradient id="footerBeamBloom" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0" />
+              <stop offset="25%" stopColor="#0284C7" stopOpacity="0.15" />
+              <stop offset="60%" stopColor="#38BDF8" stopOpacity="0.35" />
+              <stop offset="85%" stopColor="#00F0FF" stopOpacity="0.25" />
+              <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
+            </linearGradient>
+
+            <filter id="footerBeamBlur" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="6" />
+            </filter>
+            <filter id="footerBeamSoftBlur" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="14" />
+            </filter>
+          </defs>
+
+          {/* Broad Atmosphere Bloom */}
+          <path
+            d="M -60 340 C 280 320, 620 300, 960 250 C 1140 220, 1340 180, 1500 150"
+            stroke="url(#footerBeamBloom)"
+            strokeWidth="16"
+            fill="none"
+            filter="url(#footerBeamSoftBlur)"
+            className="opacity-40"
+          />
+
+          {/* Mid Glow Layer */}
+          <path
+            d="M -60 340 C 280 320, 620 300, 960 250 C 1140 220, 1340 180, 1500 150"
+            stroke="url(#footerBeamGrad)"
+            strokeWidth="3.5"
+            fill="none"
+            filter="url(#footerBeamBlur)"
+            className="opacity-75"
+          />
+
+          {/* Sharp Core Laser Line */}
+          <path
+            d="M -60 340 C 280 320, 620 300, 960 250 C 1140 220, 1340 180, 1500 150"
+            stroke="#E0F2FE"
+            strokeWidth="1.2"
+            fill="none"
+            className="opacity-60"
+          />
+        </svg>
+
+        {/* Oversized Typographic Watermark (Titanium / Cyan Specular Sheen - Seamlessly Integrated, Zero Box Artifact) */}
+        <span 
+          className="font-display font-black tracking-[0.08em] sm:tracking-[0.14em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[clamp(24px,7.5vw,34px)] sm:text-[clamp(38px,6vw,56px)] md:text-[90px] lg:text-[140px] xl:text-[170px] 2xl:text-[190px] leading-none whitespace-nowrap uppercase animate-watermark-fade transform -rotate-[1deg] sm:-rotate-[1.5deg] md:-rotate-[2.5deg] lg:-rotate-[3.2deg] origin-center mb-2 sm:mb-2.5 md:mb-3 lg:mb-1 select-none pointer-events-none"
+          style={{
+            color: 'rgba(148, 163, 184, 0.045)',
+            WebkitTextStroke: '1px rgba(125, 211, 252, 0.15)',
+            textShadow: '0 0 25px rgba(56, 189, 248, 0.08)',
+          }}
+        >
+          TECHCRESTAX
+        </span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
           
           {/* Column 1: Brand & Positioning (4 cols) */}
