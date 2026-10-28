@@ -2,10 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { companyData } from '../../data/companyData';
 
+function formatRole(role) {
+  if (!role) return '';
+  const parts = role.split(' ');
+  if (parts.length <= 1) return `[ ${role} ]`;
+  const last = parts.pop();
+  return (
+    <>
+      [ {parts.join(' ')} <span className="whitespace-nowrap">{last} ]</span>
+    </>
+  );
+}
+
 function PhotoCard({ member, className = "" }) {
   return (
     <div 
-      className={`w-full aspect-[4/5] rounded-[22px] sm:rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-black/[0.04] dark:border-white/10 shadow-xs hover:shadow-lg transition-all duration-300 group cursor-pointer relative ${className}`}
+      className={`w-full aspect-[4/5] shrink-0 rounded-[22px] sm:rounded-3xl overflow-hidden bg-slate-200 dark:bg-slate-800 border border-black/[0.04] dark:border-white/10 shadow-xs hover:shadow-lg transition-all duration-300 group cursor-pointer relative ${className}`}
       tabIndex={0}
       role="region"
       aria-label={`${member.name} portrait`}
@@ -27,20 +39,20 @@ function PhotoCard({ member, className = "" }) {
 function TextCard({ member, className = "" }) {
   return (
     <div 
-      className={`w-full p-6 sm:p-7 rounded-[22px] sm:rounded-3xl bg-white dark:bg-[#121B2A] border border-black/[0.04] dark:border-white/10 shadow-xs hover:border-[#FF6B4A]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group min-h-[180px] sm:min-h-[195px] lg:h-[220px] cursor-pointer ${className}`}
+      className={`w-full p-5 sm:p-6 lg:p-5 xl:p-6 rounded-[22px] sm:rounded-3xl bg-white dark:bg-[#121B2A] border border-black/[0.04] dark:border-white/10 shadow-xs hover:border-[#FF6B4A]/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group flex-1 min-h-[190px] sm:min-h-[210px] cursor-pointer ${className}`}
       tabIndex={0}
       role="region"
       aria-label={`${member.name} biography`}
     >
-      <div className="text-[11px] font-mono tracking-wider text-slate-500 dark:text-slate-400 font-bold uppercase transition-colors duration-300 group-hover:text-[#FF6B4A]">
-        [ {member.role} ]
+      <div className="text-[10px] xl:text-[11px] font-mono tracking-wider text-slate-500 dark:text-slate-400 font-bold uppercase transition-colors duration-300 group-hover:text-[#FF6B4A] leading-snug">
+        {formatRole(member.role)}
       </div>
 
-      <div className="space-y-2 mt-4 sm:mt-5">
-        <h3 className="font-display font-extrabold text-base sm:text-lg text-[#0D1B2A] dark:text-white uppercase tracking-tight transition-colors duration-300 group-hover:text-[#FF6B4A]">
+      <div className="space-y-1.5 sm:space-y-2 mt-3 sm:mt-4">
+        <h3 className="font-display font-extrabold text-base lg:text-[15px] xl:text-lg text-[#0D1B2A] dark:text-white uppercase tracking-tight transition-colors duration-300 group-hover:text-[#FF6B4A]">
           {member.name}
         </h3>
-        <p className="text-xs sm:text-[13px] text-[#4C5258] dark:text-slate-300 leading-relaxed">
+        <p className="text-xs lg:text-[12px] xl:text-[13px] text-[#4C5258] dark:text-slate-300 leading-relaxed">
           {member.bio}
         </p>
       </div>
@@ -109,7 +121,7 @@ export default function TeamSection() {
         {columns.map((col, idx) => {
           if (!col.member) return null;
           return (
-            <div key={col.member.id || idx} className="flex flex-col gap-5 sm:gap-6">
+            <div key={col.member.id || idx} className="flex flex-col gap-5 sm:gap-6 h-full">
               {col.isImageFirst ? (
                 <>
                   <PhotoCard member={col.member} />
