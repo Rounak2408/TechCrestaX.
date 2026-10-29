@@ -7,6 +7,7 @@ import {
   MessageSquare, 
   MapPin, 
   ChevronRight,
+  ShieldCheck,
   Sparkles
 } from 'lucide-react';
 import { companyData } from '../../data/companyData';
@@ -42,28 +43,28 @@ export default function Footer() {
 
   const navLinks = [
     { title: 'Home', path: '/' },
-    { title: 'Services', path: '/services' },
-    { title: 'Work & Projects', path: '/work' },
-    { title: 'About Us', path: '/about' },
+    { title: 'About Studio', path: '/about' },
+    { title: 'Selected Work', path: '/work' },
+    { title: 'Services & Scope', path: '/services' },
     { title: 'Pricing & Plans', path: '/pricing' },
-    { title: 'Blog & Articles', path: '/blog' },
+    { title: 'Tech Insights', path: '/blog' },
     { title: 'FAQ', path: '/faq' },
     { title: 'Contact', path: '/contact' },
   ];
 
   const serviceLinks = [
-    { title: 'Websites That Convert', path: '/services#website-design-development' },
-    { title: 'E-commerce & Portals', path: '/services#ecommerce-website-development' },
+    { title: 'Website Design & Development', path: '/services#website-design-development' },
     { title: 'Web Applications & SaaS', path: '/services#web-applications-platforms' },
+    { title: 'E-commerce Platforms', path: '/services#ecommerce-website-development' },
     { title: 'UI/UX & Product Design', path: '/services#ui-ux-design' },
-    { title: 'SEO & Organic Growth', path: '/services#seo-local-seo' },
-    { title: 'Performance Strategy', path: '/services#digital-growth-online-presence' },
+    { title: 'SEO & Growth Strategy', path: '/services#seo-local-seo' },
+    { title: 'Speed & Web Vitals', path: '/services#digital-growth-online-presence' },
   ];
 
   const handleLogoClick = (e) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      window.location.reload();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       window.location.href = '/';
     }
@@ -71,112 +72,27 @@ export default function Footer() {
 
   return (
     <footer 
-      className="w-full bg-[#0D1B2A] text-slate-300 relative select-none border-t border-white/10 overflow-hidden"
+      className="w-full bg-[#070A0F] text-slate-300 relative select-none border-t border-white/10 overflow-hidden"
       role="contentinfo"
       aria-label="Site Footer"
     >
-      {/* Background Typographic Watermark & Horizon Light Beam */}
+      {/* Subtle controlled atmospheric lighting */}
       <div 
-        className="absolute inset-x-0 bottom-0 h-[190px] sm:h-[240px] md:h-[300px] lg:h-[370px] pointer-events-none select-none z-0 overflow-hidden flex items-end justify-center"
-        aria-hidden="true"
-      >
-        {/* Ambient Cyan-Blue Glow on the right (behind STAX & WhatsApp CTA) */}
-        <div 
-          className="absolute -right-16 sm:-right-24 bottom-4 sm:bottom-10 w-[240px] sm:w-[380px] lg:w-[520px] h-[120px] sm:h-[180px] lg:h-[220px] rounded-full blur-[60px] sm:blur-[90px] opacity-25 pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(14, 165, 233, 0.18) 50%, transparent 80%)'
-          }}
-        />
+        className="absolute top-0 left-1/4 -translate-x-1/2 w-[550px] h-[300px] bg-[#FF6B4A]/5 rounded-full blur-[140px] pointer-events-none" 
+        aria-hidden="true" 
+      />
+      <div 
+        className="absolute bottom-0 right-10 w-[450px] h-[250px] bg-blue-500/[0.03] rounded-full blur-[120px] pointer-events-none" 
+        aria-hidden="true" 
+      />
 
-        {/* Subtle Ambient Cyan-Blue Glow on the left (behind TECH) */}
-        <div 
-          className="absolute -left-16 sm:-left-20 bottom-1 sm:bottom-2 w-[200px] sm:w-[300px] lg:w-[420px] h-[100px] sm:h-[150px] lg:h-[180px] rounded-full blur-[50px] sm:blur-[80px] opacity-15 pointer-events-none"
-          style={{
-            background: 'radial-gradient(circle, rgba(56, 189, 248, 0.3) 0%, transparent 70%)'
-          }}
-        />
-
-        {/* Sweeping Horizon Electric Cyan Beam */}
-        <svg 
-          className="absolute inset-0 w-full h-full pointer-events-none"
-          viewBox="0 0 1440 370" 
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <defs>
-            <linearGradient id="footerBeamGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0" />
-              <stop offset="12%" stopColor="#38BDF8" stopOpacity="0.2" />
-              <stop offset="45%" stopColor="#00F0FF" stopOpacity="0.65" />
-              <stop offset="75%" stopColor="#38BDF8" stopOpacity="0.8" />
-              <stop offset="92%" stopColor="#60A5FA" stopOpacity="0.3" />
-              <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
-            </linearGradient>
-
-            <linearGradient id="footerBeamBloom" x1="0%" y1="100%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#38BDF8" stopOpacity="0" />
-              <stop offset="25%" stopColor="#0284C7" stopOpacity="0.15" />
-              <stop offset="60%" stopColor="#38BDF8" stopOpacity="0.35" />
-              <stop offset="85%" stopColor="#00F0FF" stopOpacity="0.25" />
-              <stop offset="100%" stopColor="#38BDF8" stopOpacity="0" />
-            </linearGradient>
-
-            <filter id="footerBeamBlur" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="6" />
-            </filter>
-            <filter id="footerBeamSoftBlur" x="-20%" y="-20%" width="140%" height="140%">
-              <feGaussianBlur stdDeviation="14" />
-            </filter>
-          </defs>
-
-          {/* Broad Atmosphere Bloom */}
-          <path
-            d="M -60 340 C 280 320, 620 300, 960 250 C 1140 220, 1340 180, 1500 150"
-            stroke="url(#footerBeamBloom)"
-            strokeWidth="16"
-            fill="none"
-            filter="url(#footerBeamSoftBlur)"
-            className="opacity-40"
-          />
-
-          {/* Mid Glow Layer */}
-          <path
-            d="M -60 340 C 280 320, 620 300, 960 250 C 1140 220, 1340 180, 1500 150"
-            stroke="url(#footerBeamGrad)"
-            strokeWidth="3.5"
-            fill="none"
-            filter="url(#footerBeamBlur)"
-            className="opacity-75"
-          />
-
-          {/* Sharp Core Laser Line */}
-          <path
-            d="M -60 340 C 280 320, 620 300, 960 250 C 1140 220, 1340 180, 1500 150"
-            stroke="#E0F2FE"
-            strokeWidth="1.2"
-            fill="none"
-            className="opacity-60"
-          />
-        </svg>
-
-        {/* Oversized Typographic Watermark (Titanium / Cyan Specular Sheen - Seamlessly Integrated, Zero Box Artifact) */}
-        <span 
-          className="font-display font-black tracking-[0.08em] sm:tracking-[0.14em] md:tracking-[0.18em] lg:tracking-[0.22em] text-[clamp(24px,7.5vw,34px)] sm:text-[clamp(38px,6vw,56px)] md:text-[90px] lg:text-[140px] xl:text-[170px] 2xl:text-[190px] leading-none whitespace-nowrap uppercase animate-watermark-fade transform -rotate-[1deg] sm:-rotate-[1.5deg] md:-rotate-[2.5deg] lg:-rotate-[3.2deg] origin-center mb-2 sm:mb-2.5 md:mb-3 lg:mb-1 select-none pointer-events-none"
-          style={{
-            color: 'rgba(148, 163, 184, 0.045)',
-            WebkitTextStroke: '1px rgba(125, 211, 252, 0.15)',
-            textShadow: '0 0 25px rgba(56, 189, 248, 0.08)',
-          }}
-        >
-          TECHCRESTAX
-        </span>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 sm:pt-20 pb-12 relative z-10 space-y-12 sm:space-y-14">
+        
+        {/* Main Multi-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 sm:pb-14 border-b border-white/[0.08]">
           
-          {/* Column 1: Brand & Positioning (4 cols) */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Column 1: Brand, Positioning & Trust (4 cols) */}
+          <div className="lg:col-span-4 space-y-5">
             <a 
               href="/" 
               onClick={handleLogoClick}
@@ -186,165 +102,205 @@ export default function Footer() {
               <img
                 src="/logo.png"
                 alt="TechCrestaX Logo"
-                className="w-10 h-10 rounded-xl object-contain border border-white/10 group-hover:scale-105 transition-transform"
+                className="w-10 h-10 rounded-xl object-contain border border-white/10 group-hover:scale-105 transition-transform duration-300"
               />
               <div>
                 <span className="font-display font-extrabold text-xl tracking-tight text-white block">
                   TechCresta<span className="bg-gradient-to-r from-[#FF6B4A] to-[#FFB627] bg-clip-text text-transparent">X</span>
                 </span>
-                <span className="text-[10px] font-mono tracking-widest text-slate-400 block uppercase">
+                <span className="text-[10px] font-mono tracking-widest text-[#FF6B4A] block uppercase font-bold">
                   DIGITAL ENGINEERING STUDIO
                 </span>
               </div>
             </a>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              We engineer high-performance web solutions that turn visitors into revenue. Strategy, design, development, and dependable post-launch support.
+            <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed max-w-sm">
+              We architect high-performance websites, custom web applications, and scalable digital platforms that help ambitious businesses convert visitors into clients.
             </p>
 
-            {/* Social Channels */}
-            <div className="pt-2 flex items-center gap-3">
-              <a
-                href={companyData.socials.instagram}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-pink-500/40 hover:bg-pink-500/15 hover:text-pink-400"
-              >
-                <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={companyData.socials.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500/40 hover:bg-blue-500/15 hover:text-blue-400"
-              >
-                <LinkedInIcon className="w-4 h-4" />
-              </a>
-              <a
-                href={companyData.socials.facebook}
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-slate-300 transition-all duration-300 hover:-translate-y-1 hover:border-blue-600/40 hover:bg-blue-600/15 hover:text-blue-400"
-              >
-                <FacebookIcon className="w-4 h-4" />
-              </a>
+            {/* Availability status badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Available for new projects</span>
+            </div>
+
+            {/* Social Channels with unified sizing & restrained hover states */}
+            <div className="pt-2">
+              <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-2.5">
+                Connect With Us
+              </div>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href={companyData.socials.instagram}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Follow TechCrestaX on Instagram"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#FF6B4A]/50 hover:bg-[#FF6B4A]/10 hover:text-[#FF6B4A]"
+                >
+                  <InstagramIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={companyData.socials.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Connect with TechCrestaX on LinkedIn"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-400/50 hover:bg-blue-400/10 hover:text-blue-400"
+                >
+                  <LinkedInIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={companyData.socials.facebook}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Follow TechCrestaX on Facebook"
+                  className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-500/50 hover:bg-blue-500/10 hover:text-blue-400"
+                >
+                  <FacebookIcon className="w-4 h-4" />
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Column 2: Quick Links (Alpha Agency "QUICK LINKS") (2.5 cols) */}
-          <div className="lg:col-span-3 space-y-3">
+          {/* Column 2: Studio Navigation (2.5 cols) */}
+          <div className="lg:col-span-2 lg:col-start-6 space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B4A]" />
-              <span>Quick Links</span>
+              <span>Studio</span>
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {navLinks.map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 group"
+                    className="text-[#94A3B8] hover:text-white transition-colors duration-200 inline-flex items-center gap-1.5 group"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-[#FF6B4A] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                    <span>{item.title}</span>
+                    <ChevronRight className="w-3 h-3 text-[#FF6B4A] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                    <span className="group-hover:translate-x-0.5 transition-transform duration-200">{item.title}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: Services (Alpha Agency "OUR SERVICES") (3 cols) */}
-          <div className="lg:col-span-3 space-y-3">
+          {/* Column 3: Core Capabilities & Services (3 cols) */}
+          <div className="lg:col-span-3 space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FFB627]" />
-              <span>Our Services</span>
+              <span>Capabilities</span>
             </h3>
-            <ul className="space-y-2 text-xs sm:text-sm">
+            <ul className="space-y-2.5 text-xs sm:text-sm">
               {serviceLinks.map((item) => (
                 <li key={item.title}>
                   <Link
                     to={item.path}
-                    className="text-slate-400 hover:text-white transition-colors flex items-center gap-1.5 group"
+                    className="text-[#94A3B8] hover:text-white transition-colors duration-200 inline-flex items-center gap-1.5 group"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-[#FFB627] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
-                    <span>{item.title}</span>
+                    <ChevronRight className="w-3 h-3 text-[#FFB627] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                    <span className="group-hover:translate-x-0.5 transition-transform duration-200">{item.title}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Location & WhatsApp Inquiry (2 cols) */}
-          <div className="lg:col-span-2 space-y-3">
+          {/* Column 4: Contact & Inquiries (2.5 cols) */}
+          <div className="lg:col-span-2 space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-wider text-white font-bold flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#8FC658]" />
-              <span>Contact</span>
+              <span>Get in Touch</span>
             </h3>
-            <div className="space-y-2.5 text-xs">
+
+            <div className="space-y-3.5 text-xs">
+              {/* Location with Google Maps link */}
               <a
                 href={companyData.contact.mapsUrl || companyData.location.mapsUrl || "https://www.google.com/maps/search/?api=1&query=TechCrestaX,+Rajkot,+Gujarat"}
                 target="_blank"
                 rel="noopener noreferrer"
-                title="Open TechCrestaX Office on Google Maps"
-                aria-label="Open TechCrestaX Office on Google Maps"
-                className="group flex items-start gap-2 text-slate-400 hover:text-white transition-all duration-200 cursor-pointer"
+                title="View TechCrestaX Studio on Google Maps"
+                aria-label="View TechCrestaX Studio on Google Maps"
+                className="group flex items-start gap-2.5 text-[#94A3B8] hover:text-white transition-colors duration-200"
               >
-                <MapPin className="w-4 h-4 text-[#FF6B4A] shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-125" />
-                <span className="inline-flex items-center gap-1 group-hover:underline underline-offset-4 decoration-[#FF6B4A]/50">
-                  <span>Rajkot, Gujarat, India</span>
-                  <ArrowUpRight className="w-3 h-3 text-[#FF6B4A] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <MapPin className="w-4 h-4 text-[#FF6B4A] shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-200" />
+                <span className="leading-snug">
+                  Rajkot, Gujarat, India
+                  <span className="block text-[11px] text-slate-500 group-hover:text-[#FF6B4A] transition-colors">
+                    Global client delivery
+                  </span>
                 </span>
               </a>
-              <div className="flex items-center gap-2 text-slate-400">
-                <Mail className="w-4 h-4 text-[#FF6B4A] shrink-0" />
+
+              {/* Email */}
+              <div className="flex items-start gap-2.5 text-[#94A3B8]">
+                <Mail className="w-4 h-4 text-[#FF6B4A] shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${companyData.contact.primaryEmail}`}
-                  className="hover:text-white transition-colors"
+                  className="hover:text-white transition-colors duration-200 leading-snug break-all"
+                  aria-label={`Send email to ${companyData.contact.primaryEmail}`}
                 >
                   {companyData.contact.primaryEmail}
                 </a>
               </div>
 
-              {/* WhatsApp CTA button (Strictly ZERO visible phone numbers!) */}
+              {/* Direct WhatsApp Consultation Card */}
               <div className="pt-2">
                 <a
                   href={companyData.contact.whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500 text-emerald-400 hover:text-white border border-emerald-500/30 font-semibold text-xs transition-all shadow-2xs group"
+                  className="w-full inline-flex items-center justify-between p-3 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/15 border border-emerald-500/25 text-emerald-400 transition-all duration-300 group"
+                  aria-label="Chat directly with TechCrestaX on WhatsApp"
                 >
-                  <MessageSquare className="w-3.5 h-3.5" />
-                  <span>Chat on WhatsApp</span>
-                  <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                      <MessageSquare className="w-3.5 h-3.5" />
+                    </div>
+                    <div className="text-left">
+                      <div className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors">
+                        WhatsApp Chat
+                      </div>
+                      <div className="text-[10px] font-mono text-emerald-400/80">
+                        Fast project response
+                      </div>
+                    </div>
+                  </div>
+                  <ArrowUpRight className="w-4 h-4 text-emerald-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
                 </a>
+              </div>
+
+              {/* Included Guarantee Note */}
+              <div className="flex items-center gap-2 pt-1 text-[11px] text-slate-500 font-mono">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#8FC658] shrink-0" />
+                <span>1-Year Free Maintenance Guarantee</span>
               </div>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar: Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+        {/* Bottom Bar: Copyright, Legal & Back to Top */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} TechCrestaX. All rights reserved.</span>
-            <span className="hidden sm:inline">•</span>
-            <span>Digital Engineering & Web Development</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <span className="text-slate-500">Engineered with React & Modern Web Standards</span>
           </div>
 
           <div className="flex items-center gap-5">
-            <Link to="/privacy" className="hover:text-white transition-colors">
+            <Link 
+              to="/privacy" 
+              className="hover:text-white transition-colors duration-200 text-slate-400"
+            >
               Privacy Policy
             </Link>
-            <span>•</span>
+            <span className="text-slate-700">•</span>
             <button
               type="button"
               onClick={scrollToTop}
-              className="w-8 h-8 rounded-full border border-white/10 hover:border-[#FF6B4A] bg-white/5 hover:bg-[#FF6B4A] hover:text-white text-slate-300 flex items-center justify-center transition-all cursor-pointer"
-              aria-label="Scroll to top of page"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 hover:border-[#FF6B4A]/50 bg-white/[0.03] hover:bg-[#FF6B4A]/10 text-slate-400 hover:text-white transition-all duration-200 text-xs font-mono cursor-pointer"
+              aria-label="Scroll back to top of page"
             >
-              <ArrowUp className="w-4 h-4" />
+              <span>Back to Top</span>
+              <ArrowUp className="w-3.5 h-3.5 text-[#FF6B4A]" />
             </button>
           </div>
         </div>
