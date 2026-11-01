@@ -54,7 +54,7 @@ export default function PricingPage() {
     {
       icon: Server,
       eyebrow: "DOMAIN & HOSTING",
-      value: "Quoted Separate...",
+      value: "Quoted Separately",
       subtext: "Direct billing to client accounts.",
       highlighted: false,
     },
@@ -265,7 +265,7 @@ export default function PricingPage() {
                       }`}>
                         {metric.eyebrow}
                       </span>
-                      <div className="text-xl sm:text-2xl font-black font-display text-[#0D1B2A] dark:text-white truncate">
+                      <div className="text-lg sm:text-xl lg:text-2xl font-black font-display text-[#0D1B2A] dark:text-white leading-tight">
                         {metric.value}
                       </div>
                       <p className="text-xs text-[#4C5258] dark:text-[#94A3B8] line-clamp-1">
