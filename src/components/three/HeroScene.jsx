@@ -665,7 +665,7 @@ function RealDesktopMonitor({ monitorTex, mouseRef }) {
  */
 function Laptop3D({ laptopTex }) {
   return (
-    <group position={[-1.25, -0.65, 1.25]} rotation={[0, 0.36, 0]}>
+    <group position={[-1.02, -0.65, 1.25]} rotation={[0, 0.34, 0]}>
       {/* ── Laptop Base Plate (Bottom Half) ── */}
       <RoundedBox args={[1.85, 0.045, 1.25]} radius={0.03} smoothness={4} position={[0, 0, 0]} receiveShadow castShadow>
         <meshStandardMaterial color="#1A2234" metalness={0.90} roughness={0.20} />
@@ -810,13 +810,13 @@ function FloatingCodeWindow({ codeTex }) {
   useFrame((state) => {
     const t = state.clock.elapsedTime;
     if (ref.current) {
-      ref.current.position.y = 0.95 + Math.sin(t * 0.45 + 1.2) * 0.05;
-      ref.current.rotation.y = 0.24 + Math.sin(t * 0.2) * 0.03;
+      ref.current.position.y = 0.98 + Math.sin(t * 0.45 + 1.2) * 0.05;
+      ref.current.rotation.y = 0.20 + Math.sin(t * 0.2) * 0.03;
     }
   });
 
   return (
-    <group ref={ref} position={[-1.75, 0.95, 0.5]} rotation={[-0.04, 0.24, -0.02]}>
+    <group ref={ref} position={[-1.30, 0.98, 0.65]} rotation={[-0.04, 0.20, -0.02]}>
       <RoundedBox args={[1.85, 1.30, 0.05]} radius={0.07} smoothness={4} castShadow>
         <meshStandardMaterial color="#111422" metalness={0.6} roughness={0.3} />
       </RoundedBox>
@@ -900,16 +900,16 @@ function EnergyTendril({ points, color = '#FF6B4A' }) {
 function WorkstationRig({ mouseRef, textures }) {
   const { viewport } = useThree();
 
-  // Auto-fit scale so the entire composition is fully visible with generous margins
+  // Auto-fit scale so the entire composition is prominent, larger and responsive
   const responsiveScale = useMemo(() => {
-    // Total composition width ~ 5.4, height ~ 3.3
-    const scaleX = (viewport.width * 0.88) / 5.4;
-    const scaleY = (viewport.height * 0.86) / 3.3;
-    return Math.max(0.50, Math.min(Math.min(scaleX, scaleY), 0.80));
+    // Total composition width ~ 5.0, height ~ 3.1
+    const scaleX = (viewport.width * 0.94) / 5.0;
+    const scaleY = (viewport.height * 0.92) / 3.1;
+    return Math.max(0.65, Math.min(Math.min(scaleX, scaleY), 1.05));
   }, [viewport.width, viewport.height]);
 
   return (
-    <group position={[0.1, -0.05, 0]} scale={responsiveScale}>
+    <group position={[0.42, -0.05, 0]} scale={responsiveScale}>
       {/* Contact Shadows on the desk */}
       <ContactShadows position={[0, -1.16, 0.6]} opacity={0.8} scale={15} blur={2.2} far={3.6} color="#01040A" />
 
@@ -936,7 +936,7 @@ function WorkstationRig({ mouseRef, textures }) {
       {/* Badge: </> Web Development (Above laptop) */}
       <FloatingPillBadge
         texture={textures.webDevBadge}
-        position={[-1.25, 0.15, 1.6]}
+        position={[-0.95, 0.15, 1.6]}
         rotation={[0.02, 0.28, 0]}
         floatOffset={0.4}
         size={[1.25, 0.38]}
@@ -979,17 +979,17 @@ function WorkstationRig({ mouseRef, textures }) {
       />
 
       {/* ── 7. Floating Crystals & Light Tendrils ── */}
-      <FloatingCrystal position={[-2.4, 1.3, -0.3]} color="#FF982A" speed={0.9} />
+      <FloatingCrystal position={[-1.7, 1.3, -0.3]} color="#FF982A" speed={0.9} />
       <FloatingCrystal position={[2.5, -0.5, 0.2]} color="#FFB627" speed={1.1} />
       <FloatingCrystal position={[0.4, 1.9, -0.6]} color="#FF6B4A" speed={0.8} />
-      <FloatingCrystal position={[-2.3, -0.6, 1.2]} color="#FFB627" speed={1.2} />
+      <FloatingCrystal position={[-1.6, -0.6, 1.2]} color="#FFB627" speed={1.2} />
 
       {/* Energy tendrils looping gracefully around the devices */}
       <EnergyTendril
         points={[
-          [-1.8, 0.8, 0.4],
-          [-1.5, 0.2, 1.4],
-          [-0.8, -0.4, 1.8],
+          [-1.3, 0.8, 0.4],
+          [-1.0, 0.2, 1.4],
+          [-0.6, -0.4, 1.8],
           [0.2, -0.7, 1.7],
           [1.4, -0.3, 1.5],
           [1.9, 0.6, 1.0],
@@ -1065,7 +1065,7 @@ function Scene({ mouseRef }) {
 
       {/* Orbit Controls centered on workstation */}
       <OrbitControls
-        target={[0, 0.15, 0]}
+        target={[0.35, 0.12, 0]}
         enableZoom={false}
         enablePan={false}
         dampingFactor={0.05}
@@ -1097,7 +1097,7 @@ export default function HeroScene() {
 
   return (
     <Canvas
-      camera={{ position: [0, 0.35, 7.6], fov: 38 }}
+      camera={{ position: [0.35, 0.30, 6.9], fov: 37 }}
       gl={{
         antialias: true,
         alpha: true,

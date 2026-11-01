@@ -97,10 +97,10 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-16 w-full pt-20 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center min-h-[78vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-14 items-center min-h-[80vh]">
 
           {/* ── LEFT: TYPOGRAPHIC HERO ───────────────────────── */}
-          <div className={`lg:col-span-6 xl:col-span-5 space-y-8 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`lg:col-span-6 xl:col-span-5 max-w-xl space-y-7 transition-all duration-1000 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
 
             {/* Eyebrow */}
             <div className="flex items-center gap-3">
@@ -112,7 +112,7 @@ export default function HeroSection() {
 
             {/* Giant headline */}
             <div className="space-y-0 leading-none">
-              <h1 className="font-black text-white" style={{ fontSize: 'clamp(3rem, 7vw, 7rem)', letterSpacing: '-0.03em', lineHeight: 0.95 }}>
+              <h1 className="font-black text-white" style={{ fontSize: 'clamp(2.75rem, 5.2vw, 5.2rem)', letterSpacing: '-0.03em', lineHeight: 0.98 }}>
                 <span className="block">We Build</span>
                 <span className="block relative">
                   <span
@@ -197,8 +197,8 @@ export default function HeroSection() {
 
           {/* ── RIGHT: 3D CANVAS ────────────────────────────── */}
           <div
-            className={`lg:col-span-6 xl:col-span-7 relative w-full flex items-center justify-center transition-all duration-1200 ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
-            style={{ height: 'clamp(480px, 68vh, 760px)', transitionDelay: '150ms' }}
+            className={`lg:col-span-6 xl:col-span-7 relative w-full flex items-center justify-center lg:justify-end transition-all duration-1200 ${mounted ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+            style={{ height: 'clamp(520px, 75vh, 820px)', transitionDelay: '150ms' }}
           >
             {/* Screen atmosphere glow */}
             <div
