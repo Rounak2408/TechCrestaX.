@@ -66,7 +66,6 @@ export default function ServicesOverview() {
       id: "website-design-development",
       slug: "website-design-development",
       navTitle: "Web Design & Development",
-      category: "01 // DEVELOPMENT",
       title: "Website Design & Development",
       desc: "We design and develop high-performance websites and web applications built for speed, usability, and business growth. Custom-engineered with modern React, semantic HTML5, and sub-second load times.",
       accentColor: "#FF6B4A",
@@ -83,7 +82,6 @@ export default function ServicesOverview() {
       id: "ecommerce-website-development",
       slug: "ecommerce-website-development",
       navTitle: "Shopify Store & E-commerce",
-      category: "02 // COMMERCE",
       title: "E-commerce Website Development",
       desc: "Build a premium eCommerce experience with a professionally designed online store. Frictionless shopping cart flows, payment gateway integrations, and 1-click WhatsApp order routing that converts visitors into buyers.",
       accentColor: "#10B981",
@@ -100,7 +98,6 @@ export default function ServicesOverview() {
       id: "web-applications-platforms",
       slug: "web-applications-platforms",
       navTitle: "Web Applications & SaaS",
-      category: "03 // PLATFORMS",
       title: "Web Applications & Platforms",
       desc: "Scalable web platforms, appointment booking engines, and custom business portals engineered with modern React, role-based access control, secure auth, and resilient database APIs.",
       accentColor: "#38BDF8",
@@ -117,7 +114,6 @@ export default function ServicesOverview() {
       id: "ui-ux-design",
       slug: "ui-ux-design",
       navTitle: "UI/UX & Product Design",
-      category: "04 // DESIGN SYSTEMS",
       title: "UI/UX & Product Design",
       desc: "Intuitive digital experiences designed to make products easier to use and more engaging. Conversion-focused Figma prototypes, cohesive design tokens, and clear visual hierarchies that elevate brand perception.",
       accentColor: "#8B5CF6",
@@ -134,7 +130,6 @@ export default function ServicesOverview() {
       id: "seo-local-seo",
       slug: "seo-local-seo",
       navTitle: "Search Engine Optimization",
-      category: "05 // SEARCH & TRAFFIC",
       title: "SEO & Local SEO",
       desc: "We help businesses dominate search engine results with tailored SEO solutions designed to improve visibility, drive qualified organic traffic, and maximize long-term business growth.",
       accentColor: "#FFB627",
@@ -151,7 +146,6 @@ export default function ServicesOverview() {
       id: "digital-growth-online-presence",
       slug: "digital-growth-online-presence",
       navTitle: "Digital Growth & Strategy",
-      category: "06 // STRATEGY",
       title: "Digital Growth & Online Presence",
       desc: "End-to-end digital positioning, social brand integration, and consistent brand presentation across modern customer touchpoints. Turn marketing attention into verified direct client inquiries.",
       accentColor: "#F43F5E",
@@ -356,7 +350,7 @@ export default function ServicesOverview() {
             >
               <div className="space-y-6">
                 {/* Alpha Agency Concentric Rings Golden Icon */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center">
                   <svg width="44" height="44" viewBox="0 0 48 48" fill="none" className="shrink-0">
                     <circle cx="24" cy="24" r="22" stroke="url(#goldGrad)" strokeWidth="1.5" strokeDasharray="3 3" opacity="0.6" />
                     <circle cx="24" cy="24" r="16" stroke="url(#goldGrad)" strokeWidth="2" />
@@ -370,9 +364,6 @@ export default function ServicesOverview() {
                       </linearGradient>
                     </defs>
                   </svg>
-                  <span className="text-[10px] font-mono font-bold tracking-wider text-slate-400 uppercase bg-white/5 px-2.5 py-1 rounded-full border border-white/8">
-                    {currentService.category}
-                  </span>
                 </div>
 
                 {/* Description Paragraph */}
