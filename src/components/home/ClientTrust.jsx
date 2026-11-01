@@ -9,9 +9,7 @@ import {
   Stethoscope, 
   Sparkles, 
   Activity,
-  CheckCircle,
 } from 'lucide-react';
-import { companyData } from '../../data/companyData';
 
 export default function ClientTrust() {
   const verifiedProjects = [
@@ -119,19 +117,6 @@ export default function ClientTrust() {
           <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-[#0D1B2A] dark:text-slate-300 font-bold">
             AUTHENTIC CLIENT PROJECTS &amp; OFFICIAL DELIVERIES
           </span>
-        </div>
-        <div className="flex items-center gap-2 text-[11px] sm:text-xs font-mono text-[#4C5258] dark:text-slate-400">
-          <span className="hidden sm:inline">Verified Web Platforms Built by TechCrestaX</span>
-          <a
-            href={companyData.contact.googleBusinessUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-[#FF6B4A] transition-colors inline-flex items-center gap-1 text-[11px] text-[#4C5258] dark:text-slate-300"
-            title="Google Verified Business Profile"
-          >
-            <CheckCircle className="w-3.5 h-3.5 text-[#8FC658]" />
-            <span>Google Verified</span>
-          </a>
         </div>
       </div>
 

@@ -222,11 +222,7 @@ export default function HeroSection() {
               </Suspense>
             </HeroSceneErrorBoundary>
 
-            {/* Subtle Interactive 3D Indicator */}
-            <div className="absolute bottom-2 right-2 sm:right-6 z-20 pointer-events-none flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#080E1A]/70 backdrop-blur-md border border-white/10 text-white/60 text-[11px] font-mono tracking-wide shadow-lg">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse" />
-              <span>Interactive 3D • Drag to Orbit</span>
-            </div>
+
           </div>
 
         </div>

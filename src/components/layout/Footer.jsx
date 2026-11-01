@@ -125,6 +125,9 @@ export default function Footer() {
               <span>Available for new projects</span>
             </div>
 
+            {/* Govt. Certifications — simple inline logos under branding */}
+            <GovernmentCertifications variant="footer" />
+
             {/* Social Channels with unified sizing & restrained hover states */}
             <div className="pt-2">
               <div className="text-[11px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-2.5">
@@ -277,9 +280,6 @@ export default function Footer() {
           </div>
 
         </div>
-
-        {/* Official Government of India Recognitions (MSME & GeM) */}
-        <GovernmentCertifications variant="footer" />
 
         {/* Bottom Bar: Copyright, Legal & Back to Top */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
