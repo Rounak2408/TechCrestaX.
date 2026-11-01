@@ -285,8 +285,6 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1 text-center sm:text-left">
             <span>© {new Date().getFullYear()} TechCrestaX. All rights reserved.</span>
-            <span className="hidden sm:inline text-slate-700">•</span>
-            <span className="text-slate-500">Engineered with React & Modern Web Standards</span>
           </div>
 
           <div className="flex items-center gap-5">
