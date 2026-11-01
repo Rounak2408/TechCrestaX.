@@ -11,6 +11,7 @@ export const certificationData = [
     description: "Recognized under India's MSME ecosystem, supporting our professional business identity and operations.",
     cardImage: "/certifications/msme-card.webp",
     logoImage: "/certifications/msme-header-logo.png",
+    badgeLogo: "/certifications/msme-badge-logo.webp",
     badge: "Govt. of India Enterprise",
     accentGlow: "from-amber-500/15 via-orange-500/10 to-transparent",
     borderColor: "border-amber-500/30 hover:border-amber-500/60",
@@ -25,6 +26,7 @@ export const certificationData = [
     description: "Registered on the Government e-Marketplace for eligible business opportunities and procurement.",
     cardImage: "/certifications/gem-card.webp",
     logoImage: "/certifications/gem-header-logo.png",
+    badgeLogo: "/certifications/gem-badge-logo.webp",
     badge: "Public Procurement Ready",
     accentGlow: "from-blue-500/15 via-emerald-500/10 to-transparent",
     borderColor: "border-blue-500/30 hover:border-blue-500/60",
@@ -116,93 +118,165 @@ export default function GovernmentCertifications({ variant = "footer", className
   ───────────────────────────────────────────────────────────── */
   return (
     <>
-      <div className={`space-y-5 pt-8 pb-4 border-t border-white/[0.08] ${className}`}>
-        {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
-              <ShieldCheck className="w-3.5 h-3.5" />
-            </div>
-            <div>
-              <span className="text-xs font-mono font-bold uppercase tracking-wider text-white block">
-                Official Government of India Recognitions
+      <div className={`space-y-4 sm:space-y-5 pt-8 pb-4 border-t border-white/[0.08] ${className}`}>
+        
+        {/* ── MOBILE VIEW (< md): Focused official logos & approval seals ── */}
+        <div className="block md:hidden space-y-3">
+          {/* Compact mobile header */}
+          <div className="flex items-center justify-between gap-2 px-0.5">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-md bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0">
+                <ShieldCheck className="w-3 h-3" />
+              </div>
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-white">
+                Govt. of India Approved
               </span>
-              <span className="text-[11px] text-slate-400 block">
-                Formally recognized under India's national enterprise & public procurement frameworks.
-              </span>
             </div>
+
+            <span className="text-[9.5px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 inline-flex items-center gap-1 shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Verified</span>
+            </span>
           </div>
 
-          <span className="self-start sm:self-auto text-[10px] font-mono font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 inline-flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Verified Credentials</span>
-          </span>
-        </div>
+          {/* 2-Column Side-by-Side Official Logos Grid */}
+          <div className="grid grid-cols-2 gap-2.5">
+            {certificationData.map((cert) => (
+              <button
+                key={cert.id}
+                type="button"
+                onClick={() => setSelectedCert(cert)}
+                className="group relative rounded-2xl p-2.5 bg-[#0A0E17] hover:bg-[#0E1524] border border-white/10 hover:border-amber-400/40 text-left transition-all duration-200 active:scale-95 shadow-md flex flex-col justify-between overflow-hidden cursor-pointer"
+                aria-label={`View ${cert.title} official certificate`}
+              >
+                {/* Ambient subtle glow on card */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-br ${cert.accentGlow} opacity-20 group-hover:opacity-40 transition-opacity pointer-events-none`}
+                  aria-hidden="true" 
+                />
 
-        {/* Dual Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
-          {certificationData.map((cert) => (
-            <div
-              key={cert.id}
-              onClick={() => setSelectedCert(cert)}
-              className={`group relative rounded-2xl p-5 bg-[#0A0E17] hover:bg-[#0E1524] border border-white/[0.08] ${cert.borderColor} transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5 cursor-pointer flex flex-col justify-between space-y-4 overflow-hidden`}
-              role="button"
-              tabIndex={0}
-              aria-label={`Inspect ${cert.title} certificate`}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedCert(cert); }}
-            >
-              {/* Soft background ambient gradient */}
-              <div 
-                className={`absolute inset-0 bg-gradient-to-br ${cert.accentGlow} opacity-30 group-hover:opacity-60 transition-opacity pointer-events-none`}
-                aria-hidden="true" 
-              />
-
-              {/* Card Header: Emblem + Badge */}
-              <div className="flex items-center justify-between gap-3 relative z-10">
-                <div className="flex items-center gap-3">
-                  <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center p-1.5 shrink-0 group-hover:border-amber-400/40 transition-colors">
-                    <img
-                      src="/certifications/ashoka-emblem.png"
-                      alt="National Emblem of India"
-                      className="w-full h-full object-contain filter brightness-110"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-extrabold font-display text-white group-hover:text-amber-300 transition-colors tracking-tight">
-                      {cert.title}
-                    </h4>
-                    <span className="text-[10px] font-mono text-slate-400 block truncate">
-                      {cert.category}
-                    </span>
-                  </div>
+                {/* Crisp official logo container with authentic certificate backdrop */}
+                <div className="w-full bg-[#FFFDF9] rounded-xl p-2 border border-[#EAE3D5] flex items-center justify-center shadow-sm relative z-10">
+                  <img
+                    src={cert.badgeLogo}
+                    alt={`${cert.shortTitle} Logo - Govt. of India`}
+                    className="h-7 sm:h-8 w-auto max-w-full object-contain filter contrast-105"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
 
-                <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border shrink-0 ${cert.pillTheme}`}>
-                  {cert.badge}
-                </span>
+                {/* Official status & title */}
+                <div className="mt-2 text-center w-full relative z-10">
+                  <div className="flex items-center justify-center gap-1 text-white font-extrabold text-[12px] group-hover:text-amber-300 transition-colors">
+                    <span>{cert.shortTitle}</span>
+                    <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+                  </div>
+
+                  <span className="text-[9.5px] font-mono text-amber-400/90 font-medium block leading-tight mt-0.5">
+                    Approved by Govt. of India
+                  </span>
+
+                  <div className="mt-2 pt-1.5 border-t border-white/[0.08] flex items-center justify-center gap-1 text-[9.5px] font-mono text-slate-400 group-hover:text-white transition-colors">
+                    <span>View Certificate</span>
+                    <ExternalLink className="w-2.5 h-2.5 text-amber-400 shrink-0" />
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ── DESKTOP & TABLET VIEW (md+): Full luxury showcase grid ── */}
+        <div className="hidden md:block space-y-5">
+          {/* Section Header */}
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-6 h-6 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                <ShieldCheck className="w-3.5 h-3.5" />
               </div>
-
-              {/* Description */}
-              <p className="text-xs text-slate-300 leading-relaxed relative z-10">
-                "{cert.description}"
-              </p>
-
-              {/* Card Bottom: Authority & View Certificate Action */}
-              <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono relative z-10">
-                <span className="text-slate-400 truncate max-w-[220px]">
-                  {cert.authority}
+              <div>
+                <span className="text-xs font-mono font-bold uppercase tracking-wider text-white block">
+                  Official Government of India Recognitions
                 </span>
-
-                <span className="inline-flex items-center gap-1 text-amber-400 group-hover:text-amber-300 font-semibold group-hover:translate-x-0.5 transition-all">
-                  <span>View Details</span>
-                  <ExternalLink className="w-3 h-3" />
+                <span className="text-[11px] text-slate-400 block">
+                  Formally recognized under India's national enterprise & public procurement frameworks.
                 </span>
               </div>
             </div>
-          ))}
+
+            <span className="text-[10px] font-mono font-semibold px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 inline-flex items-center gap-1.5 shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Verified Credentials</span>
+            </span>
+          </div>
+
+          {/* Dual Cards Grid */}
+          <div className="grid grid-cols-2 gap-4 lg:gap-6">
+            {certificationData.map((cert) => (
+              <div
+                key={cert.id}
+                onClick={() => setSelectedCert(cert)}
+                className={`group relative rounded-2xl p-5 bg-[#0A0E17] hover:bg-[#0E1524] border border-white/[0.08] ${cert.borderColor} transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-amber-500/5 cursor-pointer flex flex-col justify-between space-y-4 overflow-hidden`}
+                role="button"
+                tabIndex={0}
+                aria-label={`Inspect ${cert.title} certificate`}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedCert(cert); }}
+              >
+                {/* Soft background ambient gradient */}
+                <div 
+                  className={`absolute inset-0 bg-gradient-to-br ${cert.accentGlow} opacity-30 group-hover:opacity-60 transition-opacity pointer-events-none`}
+                  aria-hidden="true" 
+                />
+
+                {/* Card Header: Official Badge Logo + Title + Category + Badge */}
+                <div className="flex items-center justify-between gap-3 relative z-10">
+                  <div className="flex items-center gap-3">
+                    <div className="bg-[#FFFDF9] rounded-xl px-2.5 py-1.5 border border-[#EAE3D5] flex items-center justify-center shrink-0 shadow-sm">
+                      <img
+                        src={cert.badgeLogo}
+                        alt={`${cert.title} Official Government Logo`}
+                        className="h-6 w-auto object-contain filter contrast-105"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-extrabold font-display text-white group-hover:text-amber-300 transition-colors tracking-tight">
+                        {cert.title}
+                      </h4>
+                      <span className="text-[10px] font-mono text-slate-400 block truncate">
+                        {cert.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border shrink-0 ${cert.pillTheme}`}>
+                    {cert.badge}
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs text-slate-300 leading-relaxed relative z-10">
+                  "{cert.description}"
+                </p>
+
+                {/* Card Bottom: Authority & View Certificate Action */}
+                <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono relative z-10">
+                  <span className="text-slate-400 truncate max-w-[220px]">
+                    {cert.authority}
+                  </span>
+
+                  <span className="inline-flex items-center gap-1 text-amber-400 group-hover:text-amber-300 font-semibold group-hover:translate-x-0.5 transition-all shrink-0">
+                    <span>View Details</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
+
       </div>
 
       {/* Interactive Modal */}
@@ -226,7 +300,7 @@ function CertificateModal({ cert, onClose }) {
       aria-label={`${cert.title} Verification Modal`}
     >
       <div 
-        className="relative w-full max-w-xl rounded-3xl bg-[#0B101B] border border-white/15 p-6 sm:p-8 shadow-2xl space-y-5 animate-in zoom-in-95 duration-200"
+        className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto rounded-3xl bg-[#0B101B] border border-white/15 p-5 sm:p-8 shadow-2xl space-y-4 sm:space-y-5 animate-in zoom-in-95 duration-200"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
