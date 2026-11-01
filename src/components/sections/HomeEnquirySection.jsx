@@ -111,7 +111,7 @@ export default function HomeEnquirySection() {
       <div className="absolute inset-0 pointer-events-none select-none z-0 overflow-hidden">
         {/* Volcanic Crag Rocks & Neon Laser Ring Backdrop Image */}
         <img
-          src="/portfolio_volcanic_backdrop.jpg"
+          src="/portfolio_volcanic_backdrop.webp"
           alt=""
           className="w-full h-full object-cover object-center opacity-85"
           loading="lazy"

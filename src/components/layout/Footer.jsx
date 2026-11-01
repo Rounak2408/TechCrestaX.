@@ -11,6 +11,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { companyData } from '../../data/companyData';
+import GovernmentCertifications from '../ui/GovernmentCertifications';
 
 function InstagramIcon({ className = "w-4 h-4" }) {
   return (
@@ -276,6 +277,9 @@ export default function Footer() {
           </div>
 
         </div>
+
+        {/* Official Government of India Recognitions (MSME & GeM) */}
+        <GovernmentCertifications variant="footer" />
 
         {/* Bottom Bar: Copyright, Legal & Back to Top */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">

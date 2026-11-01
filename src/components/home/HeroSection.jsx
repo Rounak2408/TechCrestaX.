@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import GovernmentCertifications from '../ui/GovernmentCertifications';
 
 const HeroScene = lazy(() => import('../three/HeroScene'));
 
@@ -189,6 +190,9 @@ export default function HeroSection() {
                 </div>
               ))}
             </div>
+
+            {/* Official Government Recognitions Trust Bar (MSME & GeM) */}
+            <GovernmentCertifications variant="hero" />
           </div>
 
           {/* ── RIGHT: 3D CANVAS ────────────────────────────── */}

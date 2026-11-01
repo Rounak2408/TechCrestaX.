@@ -70,7 +70,7 @@ export default function ServicesOverview() {
       title: "Website Design & Development",
       desc: "We design and develop high-performance websites and web applications built for speed, usability, and business growth. Custom-engineered with modern React, semantic HTML5, and sub-second load times.",
       accentColor: "#FF6B4A",
-      image: "/services/web-dev.png",
+      image: "/services/web-dev.webp",
       capabilities: [
         "Custom Website Design & React 19 Architecture",
         "Sub-Second Core Web Vitals (<0.8s load)",
@@ -87,7 +87,7 @@ export default function ServicesOverview() {
       title: "E-commerce Website Development",
       desc: "Build a premium eCommerce experience with a professionally designed online store. Frictionless shopping cart flows, payment gateway integrations, and 1-click WhatsApp order routing that converts visitors into buyers.",
       accentColor: "#10B981",
-      image: "/services/ecommerce.png",
+      image: "/services/ecommerce.webp",
       capabilities: [
         "Custom Storefront Design & Catalog Architecture",
         "Payment Gateway Integration (Razorpay, Stripe, UPI)",
@@ -104,7 +104,7 @@ export default function ServicesOverview() {
       title: "Web Applications & Platforms",
       desc: "Scalable web platforms, appointment booking engines, and custom business portals engineered with modern React, role-based access control, secure auth, and resilient database APIs.",
       accentColor: "#38BDF8",
-      image: "/services/platforms.png",
+      image: "/services/platforms.webp",
       capabilities: [
         "Doctor & Specialist Appointment Booking Systems",
         "Interactive Dashboards & Telemetry Workflows",
@@ -121,7 +121,7 @@ export default function ServicesOverview() {
       title: "UI/UX & Product Design",
       desc: "Intuitive digital experiences designed to make products easier to use and more engaging. Conversion-focused Figma prototypes, cohesive design tokens, and clear visual hierarchies that elevate brand perception.",
       accentColor: "#8B5CF6",
-      image: "/services/uiux.jpg",
+      image: "/services/uiux.webp",
       capabilities: [
         "Component-Driven Design Systems in Figma",
         "High-Fidelity Interactive Clickable Prototypes",
@@ -138,7 +138,7 @@ export default function ServicesOverview() {
       title: "SEO & Local SEO",
       desc: "We help businesses dominate search engine results with tailored SEO solutions designed to improve visibility, drive qualified organic traffic, and maximize long-term business growth.",
       accentColor: "#FFB627",
-      image: "/services/seo.png",
+      image: "/services/seo.webp",
       capabilities: [
         "Technical SEO Audits & Core Web Vitals Optimization",
         "Structured Schema Markup (LocalBusiness & Org)",
@@ -155,7 +155,7 @@ export default function ServicesOverview() {
       title: "Digital Growth & Online Presence",
       desc: "End-to-end digital positioning, social brand integration, and consistent brand presentation across modern customer touchpoints. Turn marketing attention into verified direct client inquiries.",
       accentColor: "#F43F5E",
-      image: "/services/growth.png",
+      image: "/services/growth.webp",
       capabilities: [
         "High-Converting Campaign & Marketing Landing Pages",
         "Direct 1-Click WhatsApp Lead Routing Workflows",
@@ -418,7 +418,8 @@ export default function ServicesOverview() {
                 src={currentService.image} 
                 alt={currentService.title}
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
               {/* Subtle ambient glass sheen */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#070A12]/80 via-transparent to-transparent pointer-events-none" />

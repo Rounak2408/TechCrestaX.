@@ -32,6 +32,28 @@ export const companyData = {
     linkedin: "https://www.linkedin.com/company/techcrestaxofficial/",
     facebook: "https://facebook.com/",
   },
+  certifications: [
+    {
+      id: "msme",
+      name: "MSME Registered",
+      title: "MSME REGISTERED",
+      authority: "Ministry of Micro, Small & Medium Enterprises, Govt. of India",
+      description: "Recognized under India's MSME ecosystem, supporting our professional business identity and operations.",
+      cardImage: "/certifications/msme-card.webp",
+      badge: "Govt. of India Enterprise",
+      type: "Official Government Recognition"
+    },
+    {
+      id: "gem",
+      name: "GeM Registered",
+      title: "GeM REGISTERED",
+      authority: "Government e Marketplace, Govt. of India",
+      description: "Registered on the Government e-Marketplace for eligible business opportunities and procurement.",
+      cardImage: "/certifications/gem-card.webp",
+      badge: "Public Procurement Ready",
+      type: "Official Government Recognition"
+    }
+  ],
   pricingHighlights: {
     startingPrice: "₹7,000+",
     firstYearMaintenance: "Free for 1 Year (12 Months)",

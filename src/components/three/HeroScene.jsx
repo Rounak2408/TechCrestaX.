@@ -218,7 +218,7 @@ function makeMonitorTexture() {
   if (typeof window !== 'undefined') {
     const img = new Image();
     img.crossOrigin = 'anonymous';
-    img.src = '/hero-mountains.jpg';
+    img.src = '/hero-mountains.webp';
     img.onload = () => {
       drawContent(img);
       tex.needsUpdate = true;
