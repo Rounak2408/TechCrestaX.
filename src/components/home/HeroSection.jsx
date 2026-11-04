@@ -111,7 +111,7 @@ export default function HeroSection() {
               <span className="block">We Build Digital</span>
               <span className="block">Experiences</span>
               <span className="block text-[#FF6B4A]">
-                That Grow<span className="text-[#FFB627]">.|</span>
+                That Grow<span className="text-[#FFB627]">.</span>
               </span>
             </h1>
 
