@@ -52,43 +52,41 @@ export default function HomePage() {
       </section>
 
       {/* 2. ABOUT: ABOUT TECHCRESTAX & PILLARS */}
-      <section id="about" className="scroll-mt-20">
+      <section id="about" className="scroll-mt-20 content-auto">
         <WhyChooseUs />
       </section>
 
       {/* 3. SERVICES: SERVICES OVERVIEW */}
-      <section id="services" className="scroll-mt-20">
+      <section id="services" className="scroll-mt-20 content-auto">
         <ServicesOverview />
       </section>
 
       {/* 4. PORTFOLIO: SELECTED WORK */}
-      <section id="work" className="scroll-mt-20">
+      <section id="work" className="scroll-mt-20 content-auto">
         <SelectedWork />
       </section>
 
       {/* 5. PRICING: PRICING PREVIEW */}
-      <section id="pricing" className="scroll-mt-20">
+      <section id="pricing" className="scroll-mt-20 content-auto">
         <PricingPreview />
       </section>
 
       {/* 6. PROCESS & REVIEWS */}
-      <section id="process" className="scroll-mt-20">
+      <section id="process" className="scroll-mt-20 content-auto">
         <ProcessSection />
       </section>
 
-      <section id="reviews">
+      <section id="reviews" className="content-auto">
         <ReviewsSection />
       </section>
 
-
-
       {/* 9. FAQ: FAQ PREVIEW */}
-      <section id="faq" className="scroll-mt-20">
+      <section id="faq" className="scroll-mt-20 content-auto">
         <FAQPreview />
       </section>
 
       {/* 10. CONTACT: FINAL CTA */}
-      <section id="contact-cta" className="scroll-mt-20">
+      <section id="contact-cta" className="scroll-mt-20 content-auto">
         <FinalCTA />
       </section>
     </div>

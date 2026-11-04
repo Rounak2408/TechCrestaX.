@@ -408,6 +408,8 @@ export default function ServicesOverview() {
               <img 
                 src={currentService.image} 
                 alt={currentService.title}
+                width="500"
+                height="500"
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
