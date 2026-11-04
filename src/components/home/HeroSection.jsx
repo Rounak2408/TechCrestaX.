@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
@@ -9,13 +9,9 @@ import {
   Code2, 
   Smartphone, 
   Layers, 
-  TrendingUp,
-  Box
+  TrendingUp
 } from 'lucide-react';
 import GovernmentCertifications from '../ui/GovernmentCertifications';
-
-// Lazy load 3D scene only on explicit user interaction
-const HeroScene = lazy(() => import('../three/HeroScene'));
 
 /* ─── Non-blocking Animated Counter ────────────────────────── */
 function Counter({ to, suffix = '' }) {
@@ -53,8 +49,6 @@ function Counter({ to, suffix = '' }) {
 }
 
 export default function HeroSection() {
-  const [show3D, setShow3D] = useState(false);
-
   return (
     <section
       className="relative min-h-[92svh] lg:min-h-[96svh] flex flex-col justify-center overflow-hidden bg-[#06080F]"
@@ -182,10 +176,10 @@ export default function HeroSection() {
 
               <div>
                 <div className="text-2xl sm:text-3xl font-black text-white tracking-tight">
-                  <Counter to={1} suffix="+ Yr" />
+                  <Counter to={1} suffix=" Year" />
                 </div>
                 <div className="text-[11px] sm:text-xs text-[#94A3B8] font-medium mt-0.5">
-                  Industry Experience
+                  Free Maintenance
                 </div>
               </div>
             </div>
@@ -199,118 +193,82 @@ export default function HeroSection() {
           {/* ── RIGHT COLUMN: ULTRA-FAST HERO VISUAL & MOCKUP ── */}
           <div className="lg:col-span-6 xl:col-span-6 relative w-full flex items-center justify-center">
 
-            {/* Interactive 3D Mode (Loaded only if requested by user) */}
-            {show3D ? (
-              <div className="relative w-full h-[540px] sm:h-[620px] rounded-3xl overflow-hidden border border-white/10 bg-black/40">
-                <Suspense
-                  fallback={
-                    <div className="flex flex-col items-center justify-center w-full h-full gap-3 text-slate-400">
-                      <div className="w-8 h-8 rounded-full border-2 border-[#FF6B4A] border-t-transparent animate-spin" />
-                      <span className="text-xs font-mono">Initializing 3D Scene…</span>
-                    </div>
-                  }
-                >
-                  <HeroScene />
-                </Suspense>
-                <button
-                  type="button"
-                  onClick={() => setShow3D(false)}
-                  className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full bg-black/70 hover:bg-black text-xs font-mono text-white/80 border border-white/20 transition-all cursor-pointer"
-                >
-                  ✕ Close 3D
-                </button>
+            {/* High-Performance LCP-Optimized Visual with Floating Badges */}
+            <div className="relative w-full max-w-[620px] mx-auto group select-none">
+
+              {/* Warm amber back-glow under pedestal */}
+              <div 
+                className="absolute inset-x-8 bottom-4 h-36 rounded-full opacity-60 blur-2xl pointer-events-none"
+                style={{ background: 'radial-gradient(ellipse at center, rgba(255,107,74,0.45) 0%, rgba(255,182,39,0.2) 50%, transparent 80%)' }}
+                aria-hidden="true"
+              />
+
+              {/* Main Hero LCP Image */}
+              <img
+                src="/hero-laptop-seamless.webp"
+                alt="TechCrestaX Modern Digital Solutions - High Performance Web & Platform Engineering"
+                width="1208"
+                height="840"
+                fetchPriority="high"
+                loading="eager"
+                decoding="async"
+                className="relative z-10 w-full h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+              />
+
+              {/* Floating Interactive Glass Badges Matching Mockup */}
+              
+              {/* 1. Top Right: Web Development */}
+              <div 
+                className="absolute top-3 sm:top-6 -right-2 sm:right-2 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-[#FF6B4A]/50 shadow-[0_8px_24px_rgba(255,107,74,0.2)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
+                style={{ animation: 'float 6s ease-in-out infinite' }}
+              >
+                <div className="w-7 h-7 rounded-lg bg-[#FF6B4A]/20 border border-[#FF6B4A]/40 flex items-center justify-center text-[#FF6B4A]">
+                  <Code2 className="w-4 h-4" />
+                </div>
+                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
+                  Web Development
+                </span>
               </div>
-            ) : (
-              /* High-Performance LCP-Optimized Visual with Floating Badges */
-              <div className="relative w-full max-w-[620px] mx-auto group select-none">
 
-                {/* Warm amber back-glow under pedestal */}
-                <div 
-                  className="absolute inset-x-8 bottom-4 h-36 rounded-full opacity-60 blur-2xl pointer-events-none"
-                  style={{ background: 'radial-gradient(ellipse at center, rgba(255,107,74,0.45) 0%, rgba(255,182,39,0.2) 50%, transparent 80%)' }}
-                  aria-hidden="true"
-                />
-
-                {/* Main Hero LCP Image */}
-                <img
-                  src="/hero-laptop-seamless.webp"
-                  alt="TechCrestaX Modern Digital Solutions - High Performance Web & Platform Engineering"
-                  width="1208"
-                  height="840"
-                  fetchPriority="high"
-                  loading="eager"
-                  decoding="async"
-                  className="relative z-10 w-full h-auto object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01]"
-                />
-
-                {/* Floating Interactive Glass Badges Matching Mockup */}
-                
-                {/* 1. Top Right: Web Development */}
-                <div 
-                  className="absolute top-3 sm:top-6 -right-2 sm:right-2 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-[#FF6B4A]/50 shadow-[0_8px_24px_rgba(255,107,74,0.2)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
-                  style={{ animation: 'float 6s ease-in-out infinite' }}
-                >
-                  <div className="w-7 h-7 rounded-lg bg-[#FF6B4A]/20 border border-[#FF6B4A]/40 flex items-center justify-center text-[#FF6B4A]">
-                    <Code2 className="w-4 h-4" />
-                  </div>
-                  <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-                    Web Development
-                  </span>
+              {/* 2. Mid Left: Mobile Apps */}
+              <div 
+                className="absolute top-1/3 -left-3 sm:left-2 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
+                style={{ animation: 'float 7s ease-in-out infinite 1s' }}
+              >
+                <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-slate-200">
+                  <Smartphone className="w-4 h-4" />
                 </div>
-
-                {/* 2. Mid Left: Mobile Apps */}
-                <div 
-                  className="absolute top-1/3 -left-3 sm:left-2 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
-                  style={{ animation: 'float 7s ease-in-out infinite 1s' }}
-                >
-                  <div className="w-7 h-7 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center text-slate-200">
-                    <Smartphone className="w-4 h-4" />
-                  </div>
-                  <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-                    Mobile Apps
-                  </span>
-                </div>
-
-                {/* 3. Mid Right: UI/UX Design */}
-                <div 
-                  className="absolute top-[48%] -right-3 sm:right-0 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
-                  style={{ animation: 'float 6.5s ease-in-out infinite 2s' }}
-                >
-                  <div className="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-[#FFB627]">
-                    <Layers className="w-4 h-4" />
-                  </div>
-                  <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-                    UI/UX Design
-                  </span>
-                </div>
-
-                {/* 4. Bottom Right: Digital Growth */}
-                <div 
-                  className="absolute bottom-10 sm:bottom-12 -right-1 sm:right-6 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
-                  style={{ animation: 'float 8s ease-in-out infinite 1.5s' }}
-                >
-                  <div className="w-7 h-7 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-[#FF7C42]">
-                    <TrendingUp className="w-4 h-4" />
-                  </div>
-                  <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
-                    Digital Growth
-                  </span>
-                </div>
-
-                {/* Subtle Interactive 3D Explore Pill (Zero bundle cost until clicked) */}
-                <div className="absolute bottom-1 left-4 z-20 hidden md:block">
-                  <button
-                    type="button"
-                    onClick={() => setShow3D(true)}
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/60 hover:bg-black/85 text-[11px] font-mono text-slate-300 border border-white/10 hover:border-[#FF6B4A]/40 transition-all cursor-pointer shadow-xs"
-                    title="Experience interactive 3D WebGL mode"
-                  >
-                    <Box className="w-3.5 h-3.5 text-[#FF6B4A]" />
-                    <span>Explore 3D Canvas</span>
-                  </button>
-                </div>
+                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
+                  Mobile Apps
+                </span>
               </div>
-            )}
+
+              {/* 3. Mid Right: UI/UX Design */}
+              <div 
+                className="absolute top-[48%] -right-3 sm:right-0 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
+                style={{ animation: 'float 6.5s ease-in-out infinite 2s' }}
+              >
+                <div className="w-7 h-7 rounded-lg bg-amber-500/20 border border-amber-500/30 flex items-center justify-center text-[#FFB627]">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
+                  UI/UX Design
+                </span>
+              </div>
+
+              {/* 4. Bottom Right: Digital Growth */}
+              <div 
+                className="absolute bottom-10 sm:bottom-12 -right-1 sm:right-6 z-20 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#0F1726]/85 border border-white/15 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-md transition-transform duration-300 hover:scale-105"
+                style={{ animation: 'float 8s ease-in-out infinite 1.5s' }}
+              >
+                <div className="w-7 h-7 rounded-lg bg-orange-500/20 border border-orange-500/30 flex items-center justify-center text-[#FF7C42]">
+                  <TrendingUp className="w-4 h-4" />
+                </div>
+                <span className="text-white text-xs sm:text-sm font-semibold tracking-wide">
+                  Digital Growth
+                </span>
+              </div>
+            </div>
 
           </div>
 
